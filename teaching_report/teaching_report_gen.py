@@ -135,6 +135,7 @@ html_content += """
 												
 											</ul>
 										</li>
+                                        <li><a href="teaching_report.html">Teaching Report</a></li>
 										<li>
 											<span class="opener">Ningboness Bible</span>
 											<ul>
@@ -143,7 +144,7 @@ html_content += """
 												<li><a href="#"></a></li>
 											</ul>
 										</li>
-										<li><a href="teaching_report.html">Teaching Report</a></li>
+										
 										
 							<section>
 								<header class="major">
