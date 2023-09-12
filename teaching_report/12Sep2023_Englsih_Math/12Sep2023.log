@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.24)  12 SEP 2023 15:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.24)  12 SEP 2023 15:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/georgewangxi/Documents/website/iamgeorge.github.io/teaching_report/9Sep2023_Englsih_Math/9Sep2023
-(/Users/georgewangxi/Documents/website/iamgeorge.github.io/teaching_report/9Sep2023_Englsih_Math/9Sep2023.tex
+**/Users/georgewangxi/Documents/website/iamgeorge.github.io/teaching_report/12Sep2023_Englsih_Math/12Sep2023
+(/Users/georgewangxi/Documents/website/iamgeorge.github.io/teaching_report/12Sep2023_Englsih_Math/12Sep2023.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-02-24> (/usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -164,8 +164,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count272
 \l__pdf_internal_box=\box53
-) (./9Sep2023.aux)
-\openout1 = `9Sep2023.aux'.
+)
+No file 12Sep2023.aux.
+\openout1 = `12Sep2023.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -186,7 +187,7 @@ LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 Package hyperref Info: Link coloring OFF on input line 11.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2022/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -198,9 +199,8 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 11.
 LaTeX Info: Redefining \pageref on input line 11.
 LaTeX Info: Redefining \nameref on input line 11.
- (./9Sep2023.out) (./9Sep2023.out)
 \@outlinefile=\write3
-\openout3 = `9Sep2023.out'.
+\openout3 = `12Sep2023.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 14.
@@ -208,23 +208,29 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 14.
  [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./9Sep2023.aux)
-Package rerunfilecheck Info: File `9Sep2023.out' has not changed.
-(rerunfilecheck)             Checksum: 207FB88344CA3F2FE5E74536D2F9C840;645.
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./12Sep2023.aux)
+
+Package rerunfilecheck Warning: File `12Sep2023.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `12Sep2023.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  207FB88344CA3F2FE5E74536D2F9C840;645.
  ) 
 Here is how much of TeX's memory you used:
- 7740 strings out of 478268
- 124197 string characters out of 5846347
- 418378 words of memory out of 5000000
- 25892 multiletter control sequences out of 15000+600000
+ 7727 strings out of 478268
+ 124065 string characters out of 5846347
+ 418153 words of memory out of 5000000
+ 25885 multiletter control sequences out of 15000+600000
  472019 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,6n,63p,288b,424s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,6n,63p,290b,424s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on 9Sep2023.pdf (2 pages, 51199 bytes).
+Output written on 12Sep2023.pdf (2 pages, 51221 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 46 PDF objects out of 1000 (max. 8388607)
+ 33 compressed objects within 1 object stream
  9 named destinations out of 1000 (max. 500000)
- 49 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
