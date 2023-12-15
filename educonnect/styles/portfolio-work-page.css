@@ -1,0 +1,606 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  max-width: 100vw; /* Ensure body does not exceed the viewport width */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+.portfolio-work-page-5ZX {
+  box-sizing: border-box;
+  padding: 11.2rem 20.703rem 20.4rem 5rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f3f3;
+}
+.portfolio-work-page-5ZX .navigation-bar-38y {
+  margin: 0rem 0.334rem 21.9rem 0rem;
+  width: calc(100% - 0.3344rem);
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .navigation-bar-38y .site-logo-g5T {
+  margin-right: 50.7635rem;
+  width: 30.7458rem;
+  height: 10.3rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .navigation-bar-38y .menu-mMo {
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .navigation-bar-38y .menu-mMo .work-JsX {
+  margin-right: 3.2346rem;
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.2000000363;
+  letter-spacing: -0.063rem;
+  color: #181717;
+  font-family: DM Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .navigation-bar-38y .menu-mMo .about-BRX {
+  margin-right: 3.2275rem;
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.2000000363;
+  letter-spacing: -0.063rem;
+  color: #181717;
+  font-family: DM Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .navigation-bar-38y .menu-mMo .playground-VBK {
+  margin-right: 3.0908rem;
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.2000000363;
+  letter-spacing: -0.063rem;
+  color: #181717;
+  font-family: DM Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .navigation-bar-38y .menu-mMo .contact-AoF {
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.2000000363;
+  letter-spacing: -0.063rem;
+  color: #181717;
+  font-family: DM Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .section-eTX {
+  margin-bottom: 19.25rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .section-eTX .headline-zXP {
+  margin-bottom: 11.3778rem;
+  width: 103.6rem;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .section-eTX .headline-zXP .auto-group-kcbf-wSd {
+  margin-bottom: 6.8182rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.portfolio-work-page-5ZX .section-eTX .headline-zXP .auto-group-kcbf-wSd .hello-im-mehmet-akif-HWV {
+  margin: 0rem 12.8rem 6rem 0rem;
+  max-width: 34.8rem;
+  font-size: 6rem;
+  font-weight: 500;
+  line-height: 0.9720000585;
+  letter-spacing: -0.18rem;
+  color: #181717;
+  font-family: DM Sans, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .section-eTX .headline-zXP .auto-group-kcbf-wSd .a-senior-year-design-student-who-trying-to-specialize-in-3d-modeling-texturing-92u {
+  max-width: 56rem;
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: 1.1699999571;
+  letter-spacing: -0.096rem;
+  color: #000000;
+  font-family: DM Sans, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .section-eTX .headline-zXP .auto-group-kcbf-wSd .a-senior-year-design-student-who-trying-to-specialize-in-3d-modeling-texturing-92u .a-senior-year-design-student-who-trying-to-specialize-in-3d-modeling-texturing-92u-sub-0 {
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: 1.1699999571;
+  letter-spacing: -0.096rem;
+  color: #606060;
+  font-family: DM Sans, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .headline-zXP .auto-group-kcbf-wSd .a-senior-year-design-student-who-trying-to-specialize-in-3d-modeling-texturing-92u .a-senior-year-design-student-who-trying-to-specialize-in-3d-modeling-texturing-92u-sub-1 {
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: 1.1699999571;
+  letter-spacing: -0.096rem;
+  color: #000000;
+  font-family: DM Sans, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .headline-zXP .item--wHX {
+  margin-left: 0.0033rem;
+  width: 3.3608rem;
+  height: 3.804rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 {
+  margin-bottom: 11.25rem;
+  width: 100%;
+  height: 47.45rem;
+  border-bottom: solid 0.15rem #181717;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM {
+  width: 112rem;
+  height: 36.9rem;
+  display: flex;
+  align-items: flex-start;
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM .auto-group-d8ud-LKf {
+  margin-right: 12.9rem;
+  width: 35.1rem;
+  height: 100%;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM .auto-group-d8ud-LKf .project-name-FxR {
+  margin-bottom: 2.2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM .auto-group-d8ud-LKf .auto-group-k4t5-fPs {
+  margin-bottom: 16.7rem;
+  width: 100%;
+  height: 13.6rem;
+  position: relative;
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM .auto-group-d8ud-LKf .auto-group-k4t5-fPs .goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs {
+  width: 35.1rem;
+  height: 11rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM .auto-group-d8ud-LKf .auto-group-k4t5-fPs .goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs .goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-0 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM .auto-group-d8ud-LKf .auto-group-k4t5-fPs .goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs .goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-1 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM .auto-group-d8ud-LKf .auto-group-k4t5-fPs .sculpted-in-zbrush-retopologized-and-uvs-done-in-maya-textured-in-mari-rendered-using-arnold-5kR {
+  width: 30.8rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 0;
+  top: 10.1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2150000163;
+  letter-spacing: -0.042rem;
+  color: #606060;
+  font-family: Inter, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM .auto-group-d8ud-LKf .link-wGq {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  text-decoration-line: underline;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.portfolio-work-page-5ZX .section-eTX .body-FZ7 .auto-group-me8m-CUM .thumbnail-sAV {
+  width: 64rem;
+  height: 36.4678rem;
+  background-color: #606060;
+  flex-shrink: 0;
+}
+
+.portfolio-work-page-5ZX .section-eTX .body-P8q {
+  margin-bottom: 11.25rem;
+  width: 100%;
+  height: 47.45rem;
+  border-bottom: solid 0.15rem #181717;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .section-eTX .body-P8q .auto-group-mae9-L45 {
+  width: 112rem;
+  height: 36.9rem;
+  position: relative;
+}
+.portfolio-work-page-5ZX .section-eTX .body-P8q .auto-group-mae9-L45 .project-name-fs3 {
+  width: 17.1rem;
+  height: 2.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.portfolio-work-page-5ZX .section-eTX .body-P8q .auto-group-mae9-L45 .subsurface-weight-specular-roughness-diffuse-maps-generated-with-the-procedure-and-manual-techniques-ZhX {
+  width: 35.2rem;
+  height: 6.6rem;
+  position: absolute;
+  left: 0;
+  top: 4.4rem;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .body-P8q .auto-group-mae9-L45 .link-Rzd {
+  width: 14.3rem;
+  height: 2.2rem;
+  position: absolute;
+  left: 0;
+  top: 34.7rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  text-decoration-line: underline;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.portfolio-work-page-5ZX .section-eTX .body-P8q .auto-group-mae9-L45 .thumbnail-Lrh {
+  width: 64rem;
+  height: 36.4678rem;
+  position: absolute;
+  left: 48rem;
+  top: 0;
+  background-color: #606060;
+}
+.portfolio-work-page-5ZX .section-eTX .body-ecV {
+  width: 100%;
+  height: 47.45rem;
+  border-bottom: solid 0.15rem #181717;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .section-eTX .body-ecV .auto-group-katm-D9o {
+  width: 112rem;
+  height: 36.9rem;
+  position: relative;
+}
+.portfolio-work-page-5ZX .section-eTX .body-ecV .auto-group-katm-D9o .project-name-wrV {
+  width: 17.1rem;
+  height: 2.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.portfolio-work-page-5ZX .section-eTX .body-ecV .auto-group-katm-D9o .experimental-creature-modeling-for-school-project-fGh {
+  width: 33.8rem;
+  height: 8.8rem;
+  position: absolute;
+  left: 0;
+  top: 4.4rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .body-ecV .auto-group-katm-D9o .experimental-creature-modeling-for-school-project-fGh .experimental-creature-modeling-for-school-project-fGh-sub-0 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .body-ecV .auto-group-katm-D9o .experimental-creature-modeling-for-school-project-fGh .experimental-creature-modeling-for-school-project-fGh-sub-1 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  color: #181717;
+  font-family: Inter, 'Source Sans Pro';
+}
+.portfolio-work-page-5ZX .section-eTX .body-ecV .auto-group-katm-D9o .link-rVb {
+  width: 9.4rem;
+  height: 2.2rem;
+  position: absolute;
+  left: 0;
+  top: 34.7rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.2150000466;
+  letter-spacing: -0.054rem;
+  text-decoration-line: underline;
+  color: #606060;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.portfolio-work-page-5ZX .section-eTX .body-ecV .auto-group-katm-D9o .thumbnail-Mx9 {
+  width: 64rem;
+  height: 36.4678rem;
+  position: absolute;
+  left: 48rem;
+  top: 0;
+  background-color: #606060;
+}
+.portfolio-work-page-5ZX .footer-tBP {
+  margin-right: 0.6408rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .footer-tBP .mehmet-akif-karasu-2020-q6d {
+  margin-right: 53.5647rem;
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.2000000363;
+  letter-spacing: -0.063rem;
+  color: #090909;
+  font-family: DM Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .footer-tBP .artstation-Lp5 {
+  margin-right: 3.6956rem;
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.2000000363;
+  letter-spacing: -0.063rem;
+  color: #181717;
+  font-family: DM Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .footer-tBP .linkedin-Ghj {
+  margin-right: 5.1956rem;
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.2000000363;
+  letter-spacing: -0.063rem;
+  color: #181717;
+  font-family: DM Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.portfolio-work-page-5ZX .footer-tBP .twitter-zdj {
+  font-size: 2.1rem;
+  font-weight: 500;
+  line-height: 1.2000000363;
+  letter-spacing: -0.063rem;
+  color: #181717;
+  font-family: DM Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.project-persona-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project-persona-description {
+  flex-basis: 50%; /* Adjust the width as necessary */
+  /* Add padding, margins, and other styling as needed */
+}
+
+.project-persona-thumbnails {
+  display: flex;
+  flex-basis: 50%; /* Adjust the width as necessary */
+  justify-content: space-around;
+  gap: 15px; /* This will create space between the two images */
+}
+
+.persona {
+  text-align: center;
+  /* Add padding, margins, and other styling as needed */
+}
+
+.persona img {
+  width: 100%; /* Adjust the width as necessary, or use max-width */
+  height: auto;
+  /* Add margins, borders, and other styling as needed */
+}
+.image-link .image-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+}
+
+.image-link:hover .image-hover {
+  transform: scale(1.05); /* Slightly increase size */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+.image-section {
+  text-align: right; /* Keeps the image aligned to the right */
+}
+
+
+/* Base styles (applied to all devices) */
+
+.image-section img {
+  max-width: 100%; /* Adjust as needed */
+  height: auto;
+  margin-right: 150px; /* Adds space to the right of the image */
+  display: inline-block; /* Aligns the image to the right */
+}
+
+/* Styles for tablets */
+@media (max-width: 768px) {
+  .image-section img {
+    max-width: 70%; /* Larger width on smaller devices */
+    margin-right: 50px; /* Less space on the right */
+  }
+}
+
+/* Styles for mobile phones */
+@media (max-width: 480px) {
+  .image-section img {
+    max-width: 90%; /* Use more of the available width on small screens */
+    margin-right: 20px; /* Even less space on the right */
+  }
+  
+  .portfolio-work-page-5ZX .navigation-bar-38y .site-logo-g5T {
+    margin-right: 0; /* Remove the right margin */
+    width: auto; /* Allow the width to be auto-adjusted */
+    height: auto; /* Allow the height to be auto-adjusted */
+  }
+  
+  /* You may also want to adjust padding and margins for other elements */
+  .portfolio-work-page-5ZX {
+    padding: 11.2rem 1rem 20.4rem 1rem; /* Reduced side paddings */
+  }
+  
+  /* Adapt font sizes, container widths, etc., as needed */
+}
+
+
+/* Add other media queries as needed for different screen sizes */
+.container {
+  display: block; /* Changed from flex to block */
+  padding: 20px;
+  background-color: #f2f2f2; /* Light grey background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  margin: 20px auto 20px 20px; /* Adjusted to auto for right margin and specific left margin */
+  width: calc(100% - 40px); /* Adjust width to account for padding */
+  max-width: 1200px; /* Max width as necessary */
+}
+
+iframe {
+  width: 100%; /* Full width of the container */
+  height: 400px; /* Fixed height */
+  border: none; /* No border */
+}
+.profile-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+.persona {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+.scenario {
+  color: #555;
+  margin-bottom: 20px;
+}
+.storyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end; /* Aligns the items to the right */
+  gap: 5px; /* Adjust the gap as needed */
+  padding: 10px; /* Padding around the storyboard */
+}
+
+.story-card {
+  flex: 0 0 30%; /* Adjust the width to fit 3 images in a row */
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 10px; /* Space between the rows */
+  /* Remove margin-left if you want the cards to align right without any space on the left */
+}
+
+.story-card img {
+  width: 90%;
+  height: 80%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.description {
+  padding: 8px; /* Adjust padding for description */
+  text-align: center;
+  background-color: #fff;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .story-card {
+      flex: 0 0 48%; /* Adjust for smaller screens, two images per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .story-card {
+      flex: 0 0 98%; /* Adjust for mobile screens, one image per row */
+  }
+}
+
+
+.story-card:hover {
+  transform: scale(1.4);
+  z-index: 10;
+}
+
+
+.story-card:hover img {
+  transform: scale(1.1);
+}
+
+.story-card:hover .description {
+  transform: scale(1.1);
+}
