@@ -604,3 +604,20 @@ iframe {
 .story-card:hover .description {
   transform: scale(1.1);
 }
+
+  .linkedin-Ghj a {
+    color: inherit; /* This will make the link color the same as the parent element */
+    text-decoration: none; /* Removes the underline from links */
+  }
+  
+  .linkedin-Ghj a:hover {
+    text-decoration: underline; /* Adds underline on hover, if desired */
+  }
+  .menu-mMo a {
+    color: inherit; /* Keeps the link color the same as the text */
+    text-decoration: none; /* Removes the underline from links */
+  }
+
+  .menu-mMo a:hover {
+    text-decoration: underline; /* Optional: underline on hover */
+  }
