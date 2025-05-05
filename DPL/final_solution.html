@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Cooking Project - Learning Design Solution</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <!-- Alpha template CSS -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Custom overrides & interactive styles -->
+  <style>
+    /* Preserve your original styles */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(120deg, #f7fafd 60%, #eaf2fb 100%);
+      color: #333;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8em;
+      color: #4f8cff;
+      border-bottom: 2px solid #dbeafe;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .image-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .image-row img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .image-row img:hover {
+      transform: scale(1.05);
+    }
+    .image-row > div {
+      flex: 1;
+      min-width: 300px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #e3eaf2;
+      padding: 24px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .card:hover {
+      box-shadow: 0 4px 24px rgba(79,140,255,0.3);
+      transform: translateY(-4px);
+    }
+    .link-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 20px;
+      background: #4f8cff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .link-button:hover {
+      background: #3b6fd9;
+      transform: scale(1.05);
+    }
+    .reflection-box {
+      background: #f6fafd;
+      border-left: 5px solid #4f8cff;
+      padding: 18px;
+      border-radius: 8px;
+      font-style: italic;
+      transition: background 0.3s;
+    }
+    .reflection-box:hover {
+      background: #e3f0ff;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="is-preload">
+
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="home.html">Cooking Project</a> </h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="home.html" style="color: white;">Home</a></li>
+                <li>
+                    <a href="#" class="icon solid fa-angle-down" style="color: white;">Analysis</a>
+                    <ul>
+                        <li><a href="index.html" style="color: black;">Learner Analysis</a></li>
+                        <li><a href="needs_analysis.html" style="color: black;">Needs Analysis</a></li>
+                        <li><a href="task_analysis.html" style="color: black;">Task Analysis</a></li>
+                        <li><a href="goals_obj.html" style="color: black;">Goals and Objectives</a></li>
+                    </ul>
+                </li>
+               
+                <li><a href="design.html" style="color: white;">Design</a></li>
+       
+                
+                <li>
+                    <a href="#" class="icon solid fa-angle-down">Evaluation</a>
+                    <ul>
+                        <li><a href="final_solution.html">Final Solution</a></li>
+                        <li><a href="evaluation_plan.html">Evaluation Plan</a></li>
+                        <li><a href="Design Process Model.html">Design Process Model </a></li>
+
+                
+                    </ul>
+                </li>
+                <li><a href="#" class="button">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+
+      <section class="container">
+
+        <div class="section reveal">
+          <div class="section-title"><i class="fa-solid fa-lightbulb"></i> Learning Design Solution</div>
+
+          
+
+          <div class="card">
+            <b>Short Video Modules</b><br><br>
+            To make the learning process engaging and accessible, we developed cooking tutorials broken down into bite-sized video modules. Each recipe is divided into manageable steps, presented in short videos to maintain attention and support easy follow-along. Modules are categorized by skill level (beginner, intermediate, advanced) and include estimated cooking times (e.g., “30 minutes”) to help students choose meals that match their time and ability.
+          </div>
+          <div class="section reveal">
+            <div style="text-align:center;">
+              <img src="images/evaluation/1.png" alt="Prototype Part 1"
+                   style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1);" />
+            </div>
+          </div>
+
+          <div class="card">
+            <b>Personalized Experience</b><br><br>
+            To encourage students to begin cooking and stay motivated, the platform offers a personalized learning journey. Through an initial onboarding survey, users receive tailored recipe recommendations based on their preferences, dietary needs, and skill level. An integrated AI chatbot supports users throughout the experience—offering real-time guidance and instant feedback on their final dishes.
+          </div>
+          <div class="section reveal">
+            <div style="text-align:center;">
+              <img src="images/evaluation/2.png" alt="Prototype Part 1"
+                   style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1);" />
+            </div>
+          </div>
+
+
+          <div class="card">
+            <b>Professional Feedback and Community</b><br><br>
+            To foster a sense of connection and growth, the platform features opportunities for both expert and peer engagement. Students can receive one-on-one feedback from professional chefs via direct messages and share their completed dishes within the community space. This allows for peer comparison, encouragement, and feedback—making learning collaborative and socially rewarding.
+          </div>
+          <div class="section reveal">
+            <div style="text-align:center;">
+              <img src="images/evaluation/3.png" alt="Prototype Part 1"
+                   style="max-width:80%; height:auto; border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.1);" />
+            </div>
+          </div>
+          <div class="card">
+            <b>Demo Video</b><br><br>
+            <video controls style="width: 100%; border-radius: 10px; box-shadow: 0 2px 12px #e3eaf2;">
+              <source src="Screen Recording.mov" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+
+          
+
+
+          <div class="card">
+            <b>Figma Prototype</b><br><br>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 10px; box-shadow: 0 2px 12px #e3eaf2;">
+              <iframe 
+                src="https://embed.figma.com/proto/aNNhrVQeHAIypkmKyuNNo3/Cooking-Project?node-id=157-399&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=157%3A399&embed-host=share" 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          
+
+        <!-- <div class="section reveal">
+          <div class="section-title"><i class="fa-solid fa-pen-fancy"></i> Nicole’s Reflection</div>
+          <div class="reflection-box">
+            One of the biggest challenges I faced during this project was managing tight deadlines while still striving to produce meaningful, high-quality work. Each milestone came with limited time, which made it difficult to both meet deadlines and fully engage with the design process. As a result, there were moments when our team of four experienced some misalignment across different parts of the project. To address this, I made a conscious effort to revisit earlier phases and ensure consistency and coherence from start to finish. Delegating tasks based on each team member’s strengths also played a key role in helping us work more efficiently and effectively.
+            What I found most rewarding was bringing our final prototype to life. From the ideation phase, I had a vision of what the final screens could look like and what features we might include—so seeing that vision realized was incredibly fulfilling. One of the more difficult aspects was staying disciplined about our scope. It’s tempting to pack in features, especially when you’re excited about the possibilities, but I learned the importance of aligning every design decision with our core learning goals and objectives. That mindset helped me stay grounded in the purpose of the project and ensured the final product stayed focused and intentional.
+          </div>
+        </div> -->
+
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <ul class="icons">
+        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+        <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <li>&copy; Untitled. All rights reserved.</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+    </footer>
+
+  </div>
+
+  <!-- Alpha template scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.dropotron.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- Custom scroll-reveal script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      reveals.forEach(el => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>
