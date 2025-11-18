@@ -1,382 +1,452 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
+  <meta charset="UTF-8" />
+  <title>George Wang · Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <title>EduConnect portfolio</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Sans%3A400%2C500"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C500"/>
-  <link rel="stylesheet" href="/educonnect/styles/portfolio-work-page.css"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-body: #f5f5f7;
+      --bg-card: #ffffff;
+      --border-subtle: #e5e5ea;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --text-soft: #9ca3af;
+      --accent: #2563eb;
+      --tag-bg: #f3f4ff;
+      --tag-text: #4338ca;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-top: 64px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* top bar */
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: rgba(248, 250, 252, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+    }
+
+    .topbar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .topbar-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .topbar-nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .topbar-nav a {
+      color: var(--text-muted);
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .topbar-nav a:hover {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .topbar-nav a.is-current {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* layout */
+
+    .page-wrapper {
+      max-width: 1120px;
+      margin: 32px auto;
+      padding: 0 20px 40px;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 22px;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 96px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sidebar p {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .main-column {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* portfolio cards */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: #fcfcff;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 170px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.04);
+    }
+
+    .project-body {
+      padding: 14px 16px 16px;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .project-desc {
+      font-size: 0.86rem;
+      color: var(--text-main);
+    }
+
+    .project-actions {
+      margin-top: 6px;
+    }
+
+    .project-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 12px;
+      font-size: 0.82rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: #f9fafb;
+      color: var(--accent);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .project-button:hover {
+      background: #eef2ff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 880px) {
+      body {
+        padding-top: 56px;
+      }
+
+      .page-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .topbar-inner {
+        flex-wrap: wrap;
+      }
+
+      .topbar-nav {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+
+      .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
 </head>
+
 <body>
-  
-<div class="portfolio-work-page-5ZX">
-  <div class="navigation-bar-38y">
-    <a href="index.html" rel="noopener noreferrer">
-      <img class="site-logo-g5T" src="/educonnect/assets/site-logo-uED.png" alt="Site Logo"/>
-  </a>
-  
-  <div class="menu-mMo">
-    <a href="portfolio.html" rel="noopener noreferrer" class="about-BRX">Work</a>
-    <a href="index.html" rel="noopener noreferrer" class="about-BRX">About</a>
-    <a href="index.html"  rel="noopener noreferrer" class="playground-VBK">Playground</a>
-    <a href="index.html"  rel="noopener noreferrer" class="contact-AoF">Contact</a>
-  </div>
-  </div>
-  <div class="section-eTX">
-    <div class="headline-zXP">
-      <div class="auto-group-kcbf-wSd">
-        <p class="hello-im-mehmet-akif-HWV">
-          Project
-          EduConnect
-          
-        <br/>
-        
+  <!-- top bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-name">George Wang</div>
+      <nav class="topbar-nav">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="portfolio.html" class="is-current">Portfolio</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="misc.html">Misc</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <!-- left column -->
+    <aside class="sidebar">
+      <section class="card">
+        <div class="section-title">Portfolio</div>
+        <p>
+          Selected design and learning projects across workshops, learning platforms, and digital experiences.
         </p>
-        <p class="a-senior-year-design-student-who-trying-to-specialize-in-3d-modeling-texturing-92u">
-          <span class="a-senior-year-design-student-who-trying-to-specialize-in-3d-modeling-texturing-92u-sub-0">
-            The EduConnect project is designed to connect teachers and students 
-            Anywhere<br>              
-            Anytime<br> 
-            Anyway
-            
-          <br/>
-          
-          </span>
-          <span class="a-senior-year-design-student-who-trying-to-specialize-in-3d-modeling-texturing-92u-sub-1">
-          
-          <br/>
-          
-          </span>
+        <p>
+          These works span libraries, higher education, local schools, and faith communities, often blending learning science with interactive media.
         </p>
-      </div>
-      <img class="item--wHX" src="/educonnect/assets/-NxM.png"/>
-    </div>
-    <div class="body-FZ7">
-      <div class="auto-group-me8m-CUM">
-        <div class="auto-group-d8ud-LKf">
-          <p class="project-name-FxR">01 / PROJECT Persona</p>
-          <div class="auto-group-k4t5-fPs">
-            <p class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs">
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-0">
-                Personas are fictional users whose goals and characteristics represent the needs of a larger group of users.
-              <br/>
-              
-              </span>
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-1">
-              
-              <br/>
-              
-              <br/>
-              
-              </span>
-            </p>
-            <p class="sculpted-in-zbrush-retopologized-and-uvs-done-in-maya-textured-in-mari-rendered-using-arnold-5kR">Mr. George - Math Teacher <br> Noa - Middle School Student</p>
-          </div>
-          <p class="link-wGq"><a href="educonnect/persona/Persona-student-Noa.pdf" target="_blank" class="link-wGq">Detailed Persona on Noa ↗</a></p>
-          <br>
-          <p class="link-wGq"><a href="educonnect/persona/Persona-teacher-George.pdf" target="_blank" class="link-wGq">Detailed Persona on George ↗</a></p>
-          
+      </section>
+    </aside>
+
+    <!-- right column -->
+    <main class="main-column">
+      <section class="card">
+        <div class="section-title">Projects</div>
+
+        <div class="project-grid">
+          <!-- Rethinking Our Tech Habits -->
+          <article class="project-card">
+            <div class="project-image">
+              <a href="https://sites.google.com/nyu.edu/responsible-tech" target="_blank">
+                <img src="res_tech/Bobst_Library.jpg" alt="Rethinking Our Tech Habits workshop" />
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-title">Rethinking Our Tech Habits</div>
+              <div class="project-desc">
+                A workshop series at NYU Libraries that helps participants align technology use with values, explore accountability, and reflect on privacy in everyday digital life.
+              </div>
+              <div class="project-actions">
+                <a href="DPL/home.html" class="project-button" target="_blank">View project</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- FirstBite -->
+          <article class="project-card">
+            <div class="project-image">
+              <a href="DPL/home.html" target="_blank">
+                <img src="DPL/images/Home Page.jpg" alt="FirstBite project" />
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-title">FirstBite</div>
+              <div class="project-desc">
+                A cooking education experience that supports busy students in planning and preparing healthy, budget friendly meals through learner centered design and scaffolding.
+              </div>
+              <div class="project-actions">
+                <a href="DPL/home.html" class="project-button" target="_blank">View project</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- NET Y U -->
+          <article class="project-card">
+            <div class="project-image">
+              <a href="NYUCommunity/index.html" target="_blank">
+                <img src="NYUCommunity/images/cover.gif" alt="NET Y U project" />
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-title">NET Y U</div>
+              <div class="project-desc">
+                A concept for flexible networking that helps working graduate students at NYU discover peers and events that fit complex schedules and diverse interests.
+              </div>
+              <div class="project-actions">
+                <a href="NYUCommunity/index.html" class="project-button" target="_blank">View project</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Black Myth project -->
+          <article class="project-card">
+            <div class="project-image">
+              <a href="black_myth/index.html" target="_blank">
+                <img src="images/wukong.png" alt="Black Myth Wukong learning project" />
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-title">Black Myth: Wukong – Learning in the Wild</div>
+              <div class="project-desc">
+                An analysis of how players draw on cultural narratives and feedback systems in Black Myth: Wukong to construct understanding and learn through play.
+              </div>
+              <div class="project-actions">
+                <a href="black_myth/index.html" class="project-button" target="_blank">View project</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- EduConnect -->
+          <article class="project-card">
+            <div class="project-image">
+              <a href="portfolio.html">
+                <img src="images/educonnet.png" alt="EduConnect platform" />
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-title">EduConnect</div>
+              <div class="project-desc">
+                A concept for an accessible learning platform that offers interactive classes to learners of different ages on many devices, aiming to lower barriers to structured study.
+              </div>
+              <div class="project-actions">
+                <a href="portfolio.html" class="project-button">View project</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Generative Platforms for Presentations -->
+          <article class="project-card">
+            <div class="project-image">
+              <a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf" target="_blank">
+                <img src="images/ai_enhanced.png" alt="Generative platforms for presentations" />
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-title">Generative Platforms for Presentations</div>
+              <div class="project-desc">
+                A design study that uses generative tools to move from articles to outlines to slide decks, exploring how AI can support structure, layout, and visual storytelling.
+              </div>
+              <div class="project-actions">
+                <a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf" class="project-button" target="_blank">View project</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tian En Academy -->
+          <article class="project-card">
+            <div class="project-image">
+              <a href="https://www.tianen.jiaqianhueportfolio.middcreate.net/tianen-academy/" target="_blank">
+                <img src="images/tianen.png" alt="Tian En Academy" />
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-title">Tian En Academy</div>
+              <div class="project-desc">
+                A faith based learning initiative that offers a values aligned curriculum for children, designed as an alternative to more rigid school experiences.
+              </div>
+              <div class="project-actions">
+                <a href="https://www.tianen.jiaqianhueportfolio.middcreate.net/tianen-academy/" class="project-button" target="_blank">View project</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ningbonese Bible -->
+          <article class="project-card">
+            <div class="project-image">
+              <a href="MÔ-T'A.html" target="_blank">
+                <img src="images/ningbo_bible.png" alt="Ningbonese Bible project" />
+              </a>
+            </div>
+            <div class="project-body">
+              <div class="project-title">Ningbonese Bible</div>
+              <div class="project-desc">
+                A digital record of the Ningbonese Bible with Pinyin and Chinese text that preserves a regional language and makes it easier to access for both speakers and learners.
+              </div>
+              <div class="project-actions">
+                <a href="MÔ-T'A.html" class="project-button" target="_blank">View project</a>
+              </div>
+            </div>
+          </article>
+
         </div>
-      
-        
-  
+      </section>
 
-        <!-- <span class="image fit"><img src="educonnect/assets/george_persona.png" alt="" /></span> -->
-        <div class="project-persona-thumbnails">
-          <div class="persona">
-            <a href="educonnect/persona/Persona-teacher-George.pdf" class="image-link" target="_blank">
-              <img src="educonnect/assets/george_persona.png" alt="George Wang" class="image-hover">
-            </a>
-            
-            
-            
-           
-            <!-- Add more details here -->
-          </div>
-          <div class="persona">
-            <a href="educonnect/persona/Persona-student-Noa.pdf" class="image-link" target="_blank">
-              <img src="educonnect/assets/noa_persona.png" alt="noa" class="image-hover">
-            </a>
-           
-            <!-- Add more details here -->
-          </div>
-        </div>
-
-      </div>
-    </div>
-    <div class="body-FZ7">
-      <div class="auto-group-me8m-CUM">
-        <div class="auto-group-d8ud-LKf">
-          <p class="project-name-FxR">02 / User Journey Map</p>
-          <div class="auto-group-k4t5-fPs">
-            <p class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs">
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-0">
-                User journey is the series of experiences a user has as they achieve a specific goal.
-            
-              
-              </span>
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-1">
-              
-            
-              
-            
-              
-              </span>
-            </p>
-            <p class="sculpted-in-zbrush-retopologized-and-uvs-done-in-maya-textured-in-mari-rendered-using-arnold-5kR"> As a Math Teacher <br><br>I want to quickly and accurately review and grade math assignments<br><br>
-              So that I can provide more constructive feedback and support to my students</p>
-          </div>
-
-          <p class="link-wGq"><a href="educonnect/User Journey Map/user journey map - George Wang.pdf" target="_blank" class="link-wGq">See Case Study On Mr. George↗</a></p>
-          <br>
-          <p class="link-wGq"><a href="educonnect/User Journey Map/user journey map - Noa.pdf" target="_blank" class="link-wGq">See Case Study On Noa↗</a></p>
-         
-
-          
-        </div>
-      
-        <div class="container">
-         
-          
-          <div class="image-section">
-            <img src="educonnect/User Journey Map/george.png" alt="User Journey Map">
-          </div>
-        </div>
-  
-
-       
-
-      </div>
-      
-    </div>
-    <div class="body-FZ7">
-      <div class="auto-group-me8m-CUM">
-        <div class="auto-group-d8ud-LKf">
-          <p class="project-name-FxR">03 / Competitive Audit</p>
-          <div class="auto-group-k4t5-fPs">
-            <p class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs">
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-0">
-               The competitive audit explores EduConnect competitors’ strengths and weaknesses. <br> 
-               
-              
-            
-              
-              </span>
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-1">
-              
-            
-              
-            
-              
-              </span>
-            </p>
-            <p class="sculpted-in-zbrush-retopologized-and-uvs-done-in-maya-textured-in-mari-rendered-using-arnold-5kR"> It presents the results of this analysis for design team and stakeholders in a competitive audit report.
-          </div>
-
-          <p class="link-wGq"><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vSzA6it4998824TDwbA75skaNnKxuukEsyrX7UGhxINXVwR8A4xyvQSlW5L4KTK1Q/pubhtml" target="_blank" class="link-wGq">See Complete Competitive Audit↗</a></p>
-          <br>
-          <p class="link-wGq"><a href="educonnect/competitive audit and report/Competive Audit Report.pdf" target="_blank" class="link-wGq">See Complete Competitive Report↗</a></p>
-         
-
-          
-        </div>
-      
-        <div class="container">
-          <div class="image-section">
-              <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSzA6it4998824TDwbA75skaNnKxuukEsyrX7UGhxINXVwR8A4xyvQSlW5L4KTK1Q/pubhtml?widget=true&amp;headers=false&amp;rm=minimal" width="600" height="400"></iframe>
-          </div>
-      </div>
-  
-
-       
-
-      </div>
-      
-    </div>
-    <div class="body-FZ7">
-      <div class="auto-group-me8m-CUM">
-        <div class="auto-group-d8ud-LKf">
-          <p class="project-name-FxR">04 / Story Board </p>
-          <div class="auto-group-k4t5-fPs">
-            <p class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs">
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-0">
-               Persona: Mr.George - the Math Teacher <br> 
-               
-              
-            
-              
-              </span>
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-1">
-              
-            
-              
-            
-              
-              </span>
-            </p>
-            <p class="sculpted-in-zbrush-retopologized-and-uvs-done-in-maya-textured-in-mari-rendered-using-arnold-5kR"> Scenario: A digital homework management system that enables teachers to create, distribute, collect, grade, and provide feedback on assignments.
-
-          </div>
-
-          <p class="link-wGq"><a href="educonnect/storyboard/Storyboard big picture.pdf" target="_blank" class="link-wGq">Check Big Picture Storyboard↗</a></p>
-          <br>
-          
-          <p class="link-wGq"><a href="educonnect/storyboard/Storyboard close up.pdf" target="_blank" class="link-wGq">Check Close Up Storyboard↗</a></p>
-         
-          
-          
-        </div>
-      
-        <div class="storyboard">
-          <div class="story-card">
-              <img src="educonnect/storyboard/big picture/1.jpeg" alt="Mr. George's desk">
-              <div class="description">Mr. George’s desk is messy with papers. He looks worried about homework.</div>
-          </div>
-          <div class="story-card">
-              <img src="educonnect/storyboard/big picture/2.jpeg" alt="EduConnect app discovery">
-              <div class="description">Mr. George discovers EduConnect app on his computer. He is surprised and excited.</div>
-          </div>
-          <!-- Add the other story-cards similar to the above format -->
-          <div class="story-card">
-            <img src="educonnect/storyboard/big picture/3.jpeg" alt="EduConnect app discovery">
-            <div class="description">Mr. George is happy to use template and question banks from the app. </div>
-        </div>
-        <div class="story-card">
-          <img src="educonnect/storyboard/big picture/4.jpeg" alt="EduConnect app discovery">
-          <div class="description">Mr. George assigns the homework to students works on tablets electronically. 
-          </div>
-      </div>
-      <div class="story-card">
-        <img src="educonnect/storyboard/big picture/5.jpeg" alt="EduConnect app discovery">
-        <div class="description">All students' homework is submitted through the app for progress check.
-        </div>
-    </div>
-    <div class="story-card">
-      <img src="educonnect/storyboard/big picture/6.jpeg" alt="EduConnect app discovery">
-      <div class="description"> Mr. George happily finds student’s performance improved.  
-      </div>
-    </div>
-      </div>
-  
-
-       
-
-      </div>
-
-      
-    </div>
-    
-    <div class="body-FZ7">
-      <div class="auto-group-me8m-CUM">
-        <div class="auto-group-d8ud-LKf">
-          <p class="project-name-FxR">05 / Low-Fidelity Prototype</p>
-          <div class="auto-group-k4t5-fPs">
-            <p class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs">
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-0">
-                A low-fidelity prototype is a simple and often quick visualization of a product or feature.
-               
-              
-            
-              
-              </span>
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-1">
-              
-            
-              
-            
-              
-              </span>
-            </p>
-            <p class="sculpted-in-zbrush-retopologized-and-uvs-done-in-maya-textured-in-mari-rendered-using-arnold-5kR"> It typically used in the early stages of design to explore concepts and facilitate user testing. This type of prototype usually lacks detail and does not function, focusing instead on layout and flow.
-          </div>
-
-          <p class="link-wGq"><a href="educonnect/Low-Fidelity Prototype/lo-fi prototype.pdf" target="_blank" class="link-wGq">See Complete Low-Fidelity Prototype↗</a></p>
-          <br>
-        
-         
-
-          
-        </div>
-      
-        <div class="image-section">
-          <img src="educonnect/Low-Fidelity Prototype/ezgif.com-video-to-gif-converted.gif" alt="User Journey Map">
-        </div>
-      
-  
-
-       
-
-      </div>
-      
-    </div>
-  
-    <div class="body-FZ7">
-      <div class="auto-group-me8m-CUM">
-        <div class="auto-group-d8ud-LKf">
-          <p class="project-name-FxR">06 / High-Fidelity Prototype</p>
-          <div class="auto-group-k4t5-fPs">
-            <p class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs">
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-0">
-               
-A high-fidelity prototype is an interactive and detailed model of a product, closely resembling the final version in aesthetics, functionality, and design. 
-               
-              
-            
-              
-              </span>
-              <span class="goblin-concept-digital-sculpture-with-human-like-skin-learned-a-lot-of-quick-tips-and-look-development-PKs-sub-1">
-              
-            
-              
-            
-              
-              </span>
-            </p>
-            <p class="sculpted-in-zbrush-retopologized-and-uvs-done-in-maya-textured-in-mari-rendered-using-arnold-5kR"> It's used for more accurate user testing and stakeholder demonstrations, providing a realistic experience of how the end product will look and behave.
-          </div>
-
-          <p class="link-wGq"><a href="https://www.figma.com/file/h3lcTvjcOJtHIw7ygu26R7/educonnect?type=design&node-id=0%3A1&mode=design&t=LIfn4s0lhTWfEqzH-1" target="_blank" class="link-wGq">View High-Fidelity Prototype in Figma↗</a></p>
-          <br>
-          <p class="link-wGq"><a href="https://www.figma.com/proto/h3lcTvjcOJtHIw7ygu26R7/educonnect?type=design&node-id=13-20&t=E28FWRCgYPe06DnS-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=13%3A20&mode=design" target="_blank" class="link-wGq">Try High-Fidelity Prototype Demo↗</a></p>
-          <br>
-        
-         
-
-          
-        </div>
-        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fh3lcTvjcOJtHIw7ygu26R7%2Feduconnect%3Ftype%3Ddesign%26node-id%3D13-20%26t%3DE28FWRCgYPe06DnS-1%26scaling%3Dscale-down%26page-id%3D0%253A1%26starting-point-node-id%3D13%253A20%26mode%3Ddesign" allowfullscreen></iframe>
-
-       
-
-      </div>
-      
-    </div>
-    
-    
- 
-
-  <div class="footer-tBP">
-    <p class="mehmet-akif-karasu-2020-q6d">
-    George Wang ⏤ 2023
-    <br/>
-    
-    </p>
-    <p class="linkedin-Ghj"><a href="https://github.com/iamgeorge" target="_blank" rel="noopener noreferrer">Github</a></p>
-
-    <br/>
-    
-    </p>
-    <p class="linkedin-Ghj">
-      <a href="https://www.linkedin.com/in/george-wang-b886b2131/" target="_blank" rel="noopener noreferrer">Linkedin</a>
-    </p>
-    
-    <p class="linkedin-Ghj">
-      <a href="https://twitter.com/GeorgeWang1314" target="_blank" rel="noopener noreferrer">Twitter</a>
-    </p>
+      <footer style="font-size:0.8rem; color:var(--text-soft); margin-top:8px;">
+        © 2025 George Wang. Portfolio of selected projects.
+      </footer>
+    </main>
   </div>
-</div> 
 </body>
+</html>
