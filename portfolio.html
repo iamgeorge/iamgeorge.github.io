@@ -31,7 +31,7 @@
     }
 
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", system-ui, "Segoe UI", sans-serif;
       background: var(--bg-body);
       color: var(--text-main);
       line-height: 1.6;
@@ -45,6 +45,11 @@
 
     a:hover {
       text-decoration: underline;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
 
     /* top bar */
@@ -107,9 +112,6 @@
       max-width: 1120px;
       margin: 32px auto;
       padding: 0 20px 40px;
-      display: grid;
-      grid-template-columns: 300px minmax(0, 1fr);
-      gap: 24px;
     }
 
     .card {
@@ -126,21 +128,6 @@
       font-weight: 600;
       color: var(--text-soft);
       margin-bottom: 10px;
-    }
-
-    .sidebar {
-      position: sticky;
-      top: 96px;
-      align-self: flex-start;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .sidebar p {
-      font-size: 0.9rem;
-      color: var(--text-main);
-      margin-bottom: 8px;
     }
 
     .main-column {
@@ -225,6 +212,8 @@
       background: #f9fafb;
       color: var(--accent);
       box-shadow: var(--shadow-subtle);
+      cursor: pointer;
+      white-space: nowrap;
     }
 
     .project-button:hover {
@@ -232,17 +221,14 @@
       text-decoration: none;
     }
 
+    .project-button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
     @media (max-width: 880px) {
       body {
         padding-top: 56px;
-      }
-
-      .page-wrapper {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .sidebar {
-        position: static;
       }
 
       .topbar-inner {
@@ -266,10 +252,10 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="topbar-name">George Wang</div>
-      <nav class="topbar-nav">
+      <nav class="topbar-nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="research.html">Research</a>
-        <a href="portfolio.html" class="is-current">Portfolio</a>
+        <a href="portfolio.html" class="is-current" aria-current="page">Portfolio</a>
         <a href="teaching.html">Teaching</a>
         <a href="misc.html">Misc</a>
       </nav>
@@ -277,39 +263,28 @@
   </header>
 
   <div class="page-wrapper">
-    <!-- left column -->
-    <aside class="sidebar">
-      <section class="card">
-        <div class="section-title">Portfolio</div>
-        <p>
-          Selected design and learning projects across workshops, learning platforms, and digital experiences.
-        </p>
-        <p>
-          These works span libraries, higher education, local schools, and faith communities, often blending learning science with interactive media.
-        </p>
-      </section>
-    </aside>
-
-    <!-- right column -->
+    <!-- single main column -->
     <main class="main-column">
-      <section class="card">
-        <div class="section-title">Projects</div>
+      <section class="card" aria-label="Project gallery">
+        <h2 class="section-title">Projects</h2>
 
         <div class="project-grid">
           <!-- Rethinking Our Tech Habits -->
           <article class="project-card">
             <div class="project-image">
-              <a href="https://sites.google.com/nyu.edu/responsible-tech" target="_blank">
-                <img src="res_tech/Bobst_Library.jpg" alt="Rethinking Our Tech Habits workshop" />
+              <a href="https://sites.google.com/nyu.edu/responsible-tech" target="_blank" rel="noopener noreferrer">
+                <img src="res_tech/Bobst_Library.jpg" alt="Rethinking Our Tech Habits workshop at NYU Libraries" />
               </a>
             </div>
             <div class="project-body">
-              <div class="project-title">Rethinking Our Tech Habits</div>
-              <div class="project-desc">
+              <h3 class="project-title">Rethinking Our Tech Habits</h3>
+              <p class="project-desc">
                 A workshop series at NYU Libraries that helps participants align technology use with values, explore accountability, and reflect on privacy in everyday digital life.
-              </div>
+              </p>
               <div class="project-actions">
-                <a href="DPL/home.html" class="project-button" target="_blank">View project</a>
+                <a href="https://sites.google.com/nyu.edu/responsible-tech" class="project-button" target="_blank" rel="noopener noreferrer">
+                  View project
+                </a>
               </div>
             </div>
           </article>
@@ -317,17 +292,19 @@
           <!-- FirstBite -->
           <article class="project-card">
             <div class="project-image">
-              <a href="DPL/home.html" target="_blank">
-                <img src="DPL/images/Home Page.jpg" alt="FirstBite project" />
+              <a href="DPL/home.html" target="_blank" rel="noopener noreferrer">
+                <img src="DPL/images/Home Page.jpg" alt="FirstBite cooking education website home page" />
               </a>
             </div>
             <div class="project-body">
-              <div class="project-title">FirstBite</div>
-              <div class="project-desc">
+              <h3 class="project-title">FirstBite</h3>
+              <p class="project-desc">
                 A cooking education experience that supports busy students in planning and preparing healthy, budget friendly meals through learner centered design and scaffolding.
-              </div>
+              </p>
               <div class="project-actions">
-                <a href="DPL/home.html" class="project-button" target="_blank">View project</a>
+                <a href="DPL/home.html" class="project-button" target="_blank" rel="noopener noreferrer">
+                  View project
+                </a>
               </div>
             </div>
           </article>
@@ -335,17 +312,19 @@
           <!-- NET Y U -->
           <article class="project-card">
             <div class="project-image">
-              <a href="NYUCommunity/index.html" target="_blank">
-                <img src="NYUCommunity/images/cover.gif" alt="NET Y U project" />
+              <a href="NYUCommunity/index.html" target="_blank" rel="noopener noreferrer">
+                <img src="NYUCommunity/images/cover.gif" alt="NET Y U networking concept cover" />
               </a>
             </div>
             <div class="project-body">
-              <div class="project-title">NET Y U</div>
-              <div class="project-desc">
+              <h3 class="project-title">NET Y U</h3>
+              <p class="project-desc">
                 A concept for flexible networking that helps working graduate students at NYU discover peers and events that fit complex schedules and diverse interests.
-              </div>
+              </p>
               <div class="project-actions">
-                <a href="NYUCommunity/index.html" class="project-button" target="_blank">View project</a>
+                <a href="NYUCommunity/index.html" class="project-button" target="_blank" rel="noopener noreferrer">
+                  View project
+                </a>
               </div>
             </div>
           </article>
@@ -353,17 +332,19 @@
           <!-- Black Myth project -->
           <article class="project-card">
             <div class="project-image">
-              <a href="black_myth/index.html" target="_blank">
-                <img src="images/wukong.png" alt="Black Myth Wukong learning project" />
+              <a href="black_myth/index.html" target="_blank" rel="noopener noreferrer">
+                <img src="images/wukong.png" alt="Black Myth Wukong learning through play" />
               </a>
             </div>
             <div class="project-body">
-              <div class="project-title">Black Myth: Wukong – Learning in the Wild</div>
-              <div class="project-desc">
+              <h3 class="project-title">Black Myth: Wukong – Learning in the Wild</h3>
+              <p class="project-desc">
                 An analysis of how players draw on cultural narratives and feedback systems in Black Myth: Wukong to construct understanding and learn through play.
-              </div>
+              </p>
               <div class="project-actions">
-                <a href="black_myth/index.html" class="project-button" target="_blank">View project</a>
+                <a href="black_myth/index.html" class="project-button" target="_blank" rel="noopener noreferrer">
+                  View project
+                </a>
               </div>
             </div>
           </article>
@@ -372,16 +353,18 @@
           <article class="project-card">
             <div class="project-image">
               <a href="portfolio.html">
-                <img src="images/educonnet.png" alt="EduConnect platform" />
+                <img src="images/educonnet.png" alt="EduConnect multi device learning platform concept" />
               </a>
             </div>
             <div class="project-body">
-              <div class="project-title">EduConnect</div>
-              <div class="project-desc">
+              <h3 class="project-title">EduConnect</h3>
+              <p class="project-desc">
                 A concept for an accessible learning platform that offers interactive classes to learners of different ages on many devices, aiming to lower barriers to structured study.
-              </div>
+              </p>
               <div class="project-actions">
-                <a href="portfolio.html" class="project-button">View project</a>
+                <a href="portfolio.html" class="project-button">
+                  View project
+                </a>
               </div>
             </div>
           </article>
@@ -389,17 +372,19 @@
           <!-- Generative Platforms for Presentations -->
           <article class="project-card">
             <div class="project-image">
-              <a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf" target="_blank">
-                <img src="images/ai_enhanced.png" alt="Generative platforms for presentations" />
+              <a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf" target="_blank" rel="noopener noreferrer">
+                <img src="images/ai_enhanced.png" alt="Slides from Generative Platforms for Presentations workshop" />
               </a>
             </div>
             <div class="project-body">
-              <div class="project-title">Generative Platforms for Presentations</div>
-              <div class="project-desc">
+              <h3 class="project-title">Generative Platforms for Presentations</h3>
+              <p class="project-desc">
                 A design study that uses generative tools to move from articles to outlines to slide decks, exploring how AI can support structure, layout, and visual storytelling.
-              </div>
+              </p>
               <div class="project-actions">
-                <a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf" class="project-button" target="_blank">View project</a>
+                <a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf" class="project-button" target="_blank" rel="noopener noreferrer">
+                  View project
+                </a>
               </div>
             </div>
           </article>
@@ -407,17 +392,19 @@
           <!-- Tian En Academy -->
           <article class="project-card">
             <div class="project-image">
-              <a href="https://www.tianen.jiaqianhueportfolio.middcreate.net/tianen-academy/" target="_blank">
-                <img src="images/tianen.png" alt="Tian En Academy" />
+              <a href="https://www.tianen.jiaqianhueportfolio.middcreate.net/tianen-academy/" target="_blank" rel="noopener noreferrer">
+                <img src="images/tianen.png" alt="Tian En Academy website cover" />
               </a>
             </div>
             <div class="project-body">
-              <div class="project-title">Tian En Academy</div>
-              <div class="project-desc">
+              <h3 class="project-title">Tian En Academy</h3>
+              <p class="project-desc">
                 A faith based learning initiative that offers a values aligned curriculum for children, designed as an alternative to more rigid school experiences.
-              </div>
+              </p>
               <div class="project-actions">
-                <a href="https://www.tianen.jiaqianhueportfolio.middcreate.net/tianen-academy/" class="project-button" target="_blank">View project</a>
+                <a href="https://www.tianen.jiaqianhueportfolio.middcreate.net/tianen-academy/" class="project-button" target="_blank" rel="noopener noreferrer">
+                  View project
+                </a>
               </div>
             </div>
           </article>
@@ -425,17 +412,19 @@
           <!-- Ningbonese Bible -->
           <article class="project-card">
             <div class="project-image">
-              <a href="MÔ-T'A.html" target="_blank">
-                <img src="images/ningbo_bible.png" alt="Ningbonese Bible project" />
+              <a href="MÔ-T'A.html" target="_blank" rel="noopener noreferrer">
+                <img src="images/ningbo_bible.png" alt="Ningbonese Bible digital edition" />
               </a>
             </div>
             <div class="project-body">
-              <div class="project-title">Ningbonese Bible</div>
-              <div class="project-desc">
+              <h3 class="project-title">Ningbonese Bible</h3>
+              <p class="project-desc">
                 A digital record of the Ningbonese Bible with Pinyin and Chinese text that preserves a regional language and makes it easier to access for both speakers and learners.
-              </div>
+              </p>
               <div class="project-actions">
-                <a href="MÔ-T'A.html" class="project-button" target="_blank">View project</a>
+                <a href="MÔ-T'A.html" class="project-button" target="_blank" rel="noopener noreferrer">
+                  View project
+                </a>
               </div>
             </div>
           </article>

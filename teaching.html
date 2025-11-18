@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>George Wang · Teaching</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-body: #f5f5f7;
+      --bg-card: #ffffff;
+      --border-subtle: #e5e5ea;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --text-soft: #9ca3af;
+      --accent: #2563eb;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, "Segoe UI", sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-top: 64px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* top bar */
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: rgba(248, 250, 252, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+    }
+
+    .topbar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .topbar-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .topbar-nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .topbar-nav a {
+      color: var(--text-muted);
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .topbar-nav a:hover {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+    }
+
+    .topbar-nav a.is-current {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* page wrapper */
+
+    .page-wrapper {
+      max-width: 1120px;
+      margin: 32px auto;
+      padding: 0 20px 40px;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    /* cards */
+
+    .entry-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border-subtle);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .entry-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    }
+
+    .entry-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .entry-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .entry-desc {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .entry-actions a {
+      display: inline-block;
+      padding: 5px 12px;
+      font-size: 0.82rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: #f9fafb;
+      color: var(--accent);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .entry-actions a:hover {
+      background: #eef2ff;
+      text-decoration: none;
+    }
+
+    .section-block {
+      margin-bottom: 28px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- top bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-name">George Wang</div>
+      <nav class="topbar-nav">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="teaching.html" class="is-current">Teaching</a>
+        <a href="misc.html">Misc</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+
+    <!-- Teaching section -->
+    <section class="section-block" aria-label="Teaching">
+      <h2 class="section-title">Teaching</h2>
+
+      <article class="entry-card">
+        <div class="entry-title">Responsible Technology Workshop · NYU Libraries</div>
+        <div class="entry-meta">Workshop facilitator</div>
+        <div class="entry-desc">
+          A hands on session that supports students in reflecting on digital habits, values, attention, and privacy through discussion and small group activities.
+        </div>
+        <div class="entry-actions">
+          <a href="https://sites.google.com/nyu.edu/responsible-tech" target="_blank" rel="noopener noreferrer">View materials</a>
+        </div>
+      </article>
+
+<article class="entry-card">
+  <div class="entry-title">IGCSE Mathematics (0580)</div>
+  <div class="entry-meta">Instructor · TianEn Academy</div>
+  <div class="entry-desc">
+    Taught four cohorts since 2019, covering core 0580 skills through structured lessons, practice tasks, and step by step problem solving.
+  </div>
+          <div class="entry-actions">
+          <a href="math_0580_content.html" target="_blank" rel="noopener noreferrer">View materials</a>
+           <a href="math_0580_project.html" target="_blank" rel="noopener noreferrer">View Project</a>
+
+        </div>
+</article>
+
+
+
+      
+    </section>
+
+    <!-- Talks section -->
+    <section class="section-block" aria-label="Talks">
+      <h2 class="section-title">Talks</h2>
+
+      <article class="entry-card">
+        <div class="entry-title">Generative Platforms for Presentations: From Ideas to Presentations</div>
+        <div class="entry-meta">Workshop · CUHK Shenzhen</div>
+        <div class="entry-desc">
+          A practice oriented session that walked participants through using generative tools to move from readings to outlines to slide decks, with attention to structure and storytelling.
+        </div>
+        <div class="entry-actions">
+          <a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf" target="_blank" rel="noopener noreferrer">
+            Slides
+          </a>
+        </div>
+      </article>
+
+      <article class="entry-card">
+        <div class="entry-title">NotebookLM for Teaching and Learning</div>
+        <div class="entry-meta">Lightning talk · NYU Teaching and Learning with Generative AI Symposium</div>
+        <div class="entry-desc">
+          Shared early lessons from using NotebookLM to support faculty in curating readings, generating guiding questions, and building draft learning activities from course materials.
+        </div>
+               <div class="entry-actions">
+          <a href="https://wp.nyu.edu/2025notebooklm/" target="_blank" rel="noopener noreferrer">
+            Recording
+          </a>
+        </div>
+      </article>
+
+      <article class="entry-card">
+        <div class="entry-title">ChatGPT and I - AI as a Learning Partner</div>
+        <div class="entry-meta">Roundtable · CUHK Shenzhen</div>
+        <div class="entry-desc">
+          Discussed how conversational systems can provide encouragement, feedback, and planning support for student projects, with attention to limits and ethical concerns.
+        </div>
+
+                       <div class="entry-actions">
+          <a href=" https://docs.google.com/presentation/d/11DVvyTFjiy-Qij13Z_F28SE9FCp8IIupZIKmyYLOjXw/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+            Slides
+          </a>
+        </div>
+
+       
+      </article>
+
+      
+    </section>
+
+    <footer style="font-size:0.8rem; color:var(--text-soft); margin-top:16px;">
+      © 2025 George Wang. Teaching and talks.
+    </footer>
+
+  </div>
+
+</body>
+</html>
