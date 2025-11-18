@@ -1,285 +1,1009 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>George Wang</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<script src="https://kit.fontawesome.com/cb92778af8.js" crossorigin="anonymous"></script>
-	
+  <meta charset="UTF-8" />
+  <title>George Wang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-body: #f5f5f7;
+      --bg-card: #ffffff;
+      --border-subtle: #e5e5ea;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --text-soft: #9ca3af;
+      --accent: #2563eb;
+      --tag-bg: #f3f4ff;
+      --tag-text: #4338ca;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-top: 64px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* top bar */
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: rgba(248, 250, 252, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+    }
+
+    .topbar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .topbar-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .topbar-nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .topbar-nav a {
+      color: var(--text-muted);
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .topbar-nav a:hover {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .page-wrapper {
+      max-width: 1120px;
+      margin: 32px auto;
+      padding: 0 20px 40px;
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    /* left column */
+
+    .sidebar {
+      position: sticky;
+      top: 96px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 22px;
+    }
+
+    .card + .card {
+      margin-top: 2px;
+    }
+
+    .profile-card {
+      text-align: center;
+      padding-top: 24px;
+      padding-bottom: 22px;
+    }
+
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 18px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .profile-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .profile-role {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .profile-affiliation {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .profile-email {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      word-break: break-all;
+    }
+
+    .profile-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .profile-links a {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f3f4f6;
+      color: #4b5563;
+      font-size: 0.8rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .profile-links a:hover {
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .edu-item {
+      padding: 10px 10px 8px;
+      border-radius: var(--radius-md);
+      background: #fafafa;
+    }
+
+    .edu-school {
+      font-weight: 600;
+      font-size: 0.96rem;
+      margin-bottom: 2px;
+    }
+
+    .edu-degree {
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .edu-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* right column */
+
+    .main-column {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .about-card p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pill-note {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      font-size: 0.9rem;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #f59e0b;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .subheading {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin: 14px 0 6px;
+    }
+    
+
+    /* news */
+    .news-extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+}
+
+/* when expanded, let it grow */
+.news-collapsible.news-expanded .news-extra {
+  max-height: 800px;
+}
+
+.news-toggle-row {
+  margin-top: 6px;
+  text-align: right;
+}
+
+.news-toggle-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.82rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.news-toggle-link:hover {
+  text-decoration: underline;
+}
+
+
+    .news-year {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      column-gap: 10px;
+      font-size: 0.9rem;
+      padding: 6px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-text {
+      color: var(--text-main);
+    }
+
+    .news-date {
+      white-space: nowrap;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      text-align: right;
+    }
+
+    /* research highlights */
+
+    .highlight-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 0.9rem;
+    }
+
+.highlight-item {
+  padding: 10px 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: #fcfcff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+}
+
+.highlight-item:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16);
+}
+
+.highlight-item-image {
+  margin: -4px -4px 8px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.highlight-item-image a {
+  display: block;
+}
+
+.highlight-item-image img {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.highlight-item:hover .highlight-item-image img {
+  transform: scale(1.05);
+}
+
+
+    .highlight-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .highlight-meta {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      margin-bottom: 4px;
+    }
+
+    .highlight-venue {
+      font-size: 0.86rem;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .highlight-desc {
+      font-size: 0.86rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .highlight-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .link-pill {
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+    }
+    .research-card {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.research-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.14);
+}
+
+.research-card-image {
+  width: 100%;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.research-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.research-card:hover .research-card-image img {
+  transform: scale(1.06);
+}
+
+.research-card-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.research-card-authors {
+  font-size: 0.83rem;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.research-card-venue {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.research-card-links a {
+  font-size: 0.82rem;
+  margin-right: 6px;
+  color: var(--accent);
+}
+
+.research-card-tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.research-card-tag {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 640px) {
+  .research-card {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .research-card-image {
+    height: 180px;
+  }
+
+  .research-card-title {
+    font-size: 0.96rem;
+  }
+}
+
+
+
+    /* small layout */
+
+    @media (max-width: 880px) {
+      body {
+        padding-top: 56px;
+      }
+
+      .page-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .topbar-inner {
+        flex-wrap: wrap;
+      }
+
+      .topbar-nav {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
 </head>
 
-<body class="is-preload">
+<body>
+  <!-- top bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-name">George Wang</div>
+      <nav class="topbar-nav">
+        <a href="#home">Home</a>
+        <a href="#research">Research</a>
+        <a href="#research">Portfolio</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#misc">Misc</a>
+      </nav>
+    </div>
+  </header>
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+  <div class="page-wrapper" id="home">
+    <!-- left column -->
+    <aside class="sidebar">
+      <section class="card profile-card">
+        <img src="images/selfie.jpg" alt="Profile photo" class="profile-avatar" />
 
-		<!-- Main -->
-		<div id="main">
-			<div class="inner">
+        <div class="profile-name">George Wang</div>
+<div class="profile-role">
+  MA Student<br>
+  Human-Computer Interaction
+</div>
+        <div class="profile-affiliation">New York University</div>
 
-				<!-- Header -->
-				<header id="header">
-					<a href="index.html" class="logo"><strong>George Wang's </strong> Personal Website </a>
-					<ul class="icons">
-						<li><a href="https://twitter.com/GeorgeWang1314" target="_blank"
-								class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="https://www.facebook.com/profile.php?id=100009811598924" target="_blank"
-								class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="https://github.com/iamgeorge" target="_blank" class="icon brands fa-github"><span
-									class="label">Github</span></a></li>
-						<li> <a href="index_chinese.html"><img href="index_chinese.html" src="images/china.png"
-									style="width:30px;height:30px;"></a></li>
+        <div class="profile-email">xw3617(at)nyu.com</div>
 
-					</ul>
-				</header>
+<div class="profile-links">
+  <!-- Google Scholar -->
+  <a href="https://scholar.google.com/citations?user=L1Wbk98AAAAJ&hl=en" target="_blank" title="Google Scholar">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4b5563" aria-hidden="true">
+      <!-- mortarboard top -->
+      <path d="M12 3L2 9l10 6 10-6-10-6z" />
+      <!-- tassel and base -->
+      <path d="M5 11v4.5C5 18.4 8.1 20 12 20s7-1.6 7-3.5V11l-7 4.2L5 11z" />
+      <circle cx="19.5" cy="9.5" r="1" />
+    </svg>
+  </a>
 
-				<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h1>Hi, I'm George Wang<br />
-							</h1>
-							<p>An enthusiast in Computer Science and Education</p>
-						</header>
-						<p>I am currently an MA student in Learning Technology and Experience Design at <a href="https://nyu.edu" target = "_blank">  New York University</a>. I earned a Bachelor of Engineering degree in Computer Science at <a href="https://www.cuhk.edu.cn/en" target = "_blank"> Chinese University of Hong
-							Kong, Shenzhen. </a> Prior to that, I served as a volunteer at <a href="https://all-nations.org"
-								target="_blank">All Nations International</a> , United States for a year.
-							I received <a href="https://www.ibo.org" target="_blank">International Baccalaureate Diploma
-							</a> at <a href="https://em-is.org" target="_blank">Eastern Mediterranean International
-								School</a>.</p>
-						<ul class="actions">
-							<li><a href="PSdocuments/GeorgexWang_CV.pdf" class="button big">Learn More From My CV</a></li>
-						</ul>
-					
-						
+  <!-- GitHub -->
+  <a href="https://github.com/iamgeorge" target="_blank" title="GitHub">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4b5563">
+      <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.87 10.96.58.11.79-.26.79-.57v-2.02c-3.21.7-3.89-1.39-3.89-1.39-.53-1.35-1.3-1.7-1.3-1.7-1.06-.73.08-.72.08-.72 1.18.08 1.8 1.23 1.8 1.23 1.04 1.81 2.73 1.29 3.4.99.1-.76.41-1.29.74-1.59-2.56-.29-5.26-1.3-5.26-5.8 0-1.28.46-2.33 1.22-3.15-.12-.3-.53-1.51.12-3.16 0 0 1-.32 3.3 1.21a11.4 11.4 0 0 1 6 0c2.28-1.53 3.28-1.21 3.28-1.21.66 1.65.25 2.86.13 3.16.76.82 1.21 1.87 1.21 3.15 0 4.52-2.71 5.5-5.29 5.79.42.36.79 1.1.79 2.22v3.29c0 .31.2.69.8.57A10.53 10.53 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/>
+    </svg>
+  </a>
 
-					</div>
-					<span class="image object">
-						<img src="images/selfie.jpg" alt="" />
-					</span>
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/georgexwang" target="_blank" title="LinkedIn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4b5563">
+      <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.3h.1c.53-1 1.82-2.3 3.75-2.3 4 0 4.75 2.63 4.75 6V24h-4v-7.9c0-1.88-.03-4.3-2.6-4.3-2.6 0-3 2.03-3 4.16V24h-4V8z"/>
+    </svg>
+  </a>
 
-				</section>
-				<!-- <Section>
-					<section>
-						<header class="major">
-							<h2>Erat lacinia</h2>
-						</header>
-						<div class="features">
-							<article>
-								<span class="icon fa-gem"></span>
-								<div class="content">
-									<h3>Portitor ullamcorper</h3>
-									<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-								</div>
-							</article>
-							<article>
-								<span class="icon solid fa-paper-plane"></span>
-								<div class="content">
-									<h3>Sapien veroeros</h3>
-									<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-								</div>
-							</article>
-							<article>
-								<span class="icon solid fa-rocket"></span>
-								<div class="content">
-									<h3>Quam lorem ipsum</h3>
-									<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-								</div>
-							</article>
-							<article>
-								<span class="icon solid fa-signal"></span>
-								<div class="content">
-									<h3>Sed magna finibus</h3>
-									<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-								</div>
-							</article>
-						</div>
-					</section>  -->
+  <!-- X -->
+  <a href="https://twitter.com/GeorgeWang1314" target="_blank" title="X">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4b5563">
+      <path d="M18.25 2H21l-6.56 7.5L22 22h-6.75L9.87 13.6 4 22H1.25l7.06-8.07L2 2h6.75l4.88 8.02L18.25 2z"/>
+    </svg>
+  </a>
+</div>
 
-				<Section >
-					<section>
-						<header class="major">
-							<h2>Portfolio</h2>
-						</header>
-						<div class="posts">
-							<article>
-								<a href="https://sites.google.com/nyu.edu/responsible-tech" class="image"><img src="res_tech/Bobst_Library.jpg" alt="" /></a>
-								<h3>Rethinking Our Tech Habits: workshop series </h3>
-								<p>The Responsible Technology Workshop Series, a project under NYU Libraries, helps rethink tech habits. It aligns tech use with personal values, addresses accountability, and explores privacy for a mindful digital life</p>
-								<ul class="actions">
-									<li><a href="DPL/home.html" class="button">More</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="DPL/home.html" class="image"><img src="DPL/images/Home Page.jpg" alt="" /></a>
-								<h3>FirstBite: guide busy students cook healthy, budget meals </h3>
-								<p>This project tackles the cooking challenges college students face with tight schedules and limited budgets. By analyzing learner needs and constraints, it emphasizes meal planning, cooking techniques, and nutrition. Workshops and online resources provide practical, time-saving solutions that encourage regular, healthier cooking.</p>
-								<ul class="actions">
-									<li><a href="DPL/home.html" class="button">More</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="NYUCommunity/index.html" class="image"><img src="NYUCommunity/images/cover.gif" alt="" /></a>
-								<h3>NET-Y-U: flexible networking for working grad students</h3>
-								<p>NYU Connect opens doors for graduate students to forge meaningful connections across disciplines. It offers a personalized space to balance busy lives while exploring new opportunities and perspectives.</p>
-								<ul class="actions">
-									<li><a href="NYUCommunity/index.html" class="button">More</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="black_myth/index.html" class="image"><img src="images/wukong.png" alt="" /></a>
-								<h3>Black Myth: Wukong, Learning in the Wild Project</h3>
-								<p>This project for Foundations of Learning Science explores how players of Black Myth: Wukong use prior knowledge of Journey to the West and Chinese culture to understand its mechanics and narrative. By analyzing its gameplay, it highlights how the game fosters active knowledge construction through feedback systems and its reimagined storyline.</p>
-								<ul class="actions">
-									<li><a href="black_myth/index.html" class="button">More</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="portfolio.html" class="image"><img src="images/educonnet.png" alt="" /></a>
-								<h3>EduConnect</h3>
-								<p>EduConnect revolutionizes learning by offering accessible, interactive classes for all ages, on any device, anywhere. Dive into a diverse world of knowledge with our user-friendly, comprehensive platform – your gateway to limitless learning.</p>
-								<ul class="actions">
-									<li><a href="portfolio.html" class="button">More</a></li>
-								</ul>
-							</article>
-							
-							<article>
-								<a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf" class="image"><img src="images/ai_enhanced.png" alt="" /></a>
-								<h3>Generative Platforms
-									for Presentations</h3>
-								<p>The project "Generative Platforms for Presentations – From Ideas to Presentations" is an innovative research for exploring the art of creating presentations. It converts articles into structured outlines and then into visually engaging PowerPoint slides, enhanced with AI assistance for optimal content, layout, and design.</p>
-								<ul class="actions">
-									<li><a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf" class="button">More</a></li>
-								</ul>
-							</article>
-							
-							<article>
-								<a href="https://www.tianen.jiaqianhueportfolio.middcreate.net/tianen-academy/" target="_blank" class="image"><img src="images/tianen.png" alt="" /></a>
-								<h3>Tian En Academy</h3>
-								<p>TianEn Academy was founded to offer a biblical education, nurturing children in the values of the Kingdom of God, distinct from traditional schools with their often rigid teaching philosophies. This approach aligns more closely with parents' beliefs and values, offering an alternative, values-based educational experience.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">More</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="MÔ-T'A.html" class="image"><img src="images/ningbo_bible.png" alt="" /></a>
-								<h3>Ningbonese Bible</h3>
-								<p>The project digitally records the Ningbonese Bible, complete with Pinyin and Chinese translations, aiming to preserve Ningbo's linguistic heritage and enhance accessibility for both native speakers and learners. It's an innovative approach to maintaining a regional language, combining spiritual texts with modern technology.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">More</a></li>
-								</ul>
-							</article>
-							<!-- <article>
-								<a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
-								<h3>Feugiat lorem aenean</h3>
-								<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">More</a></li>
-								</ul>
-							</article>
-							<article>
-								<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-								<h3>Amet varius aliquam</h3>
-								<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">More</a></li>
-								</ul>
-							</article> -->
-						</div>
-					</section> 
+      </section>
 
-			</div>
-			
-			
-		</div>
-		
-		
+      <section class="card">
+        <div class="section-title">Education</div>
+        <div class="edu-list">
+          <div class="edu-item">
+            <div class="edu-school">New York University</div>
+            <div class="edu-degree">MA, Educational Technology</div>
+            <div class="edu-meta">New York, USA · 2024-present</div>
+          </div>
 
-		<!-- Sidebar -->
-		<div id="sidebar">
-			<div class="inner">
+          <div class="edu-item">
+            <div class="edu-school">Chinese University of Hong Kong</div>
+            <div class="edu-degree">BEng, Computer Science</div>
+            <div class="edu-meta">Shenzhen, China · 2020-2023</div>
+          </div>
 
-				<!-- Search -->
-				<section id="search" class="alt">
-					<form method="post" action="#">
-						<input type="text" name="query" id="query" placeholder="Search" />
-					</form>
-				</section>
+          <div class="edu-item">
+            <div class="edu-school">Eastern Mediterranean International School</div>
+            <div class="edu-degree">International Baccalaureate</div>
+            <div class="edu-meta">Tel Aviv, Israel · 2016-2019</div>
+          </div>
+        </div>
+      </section>
+    </aside>
 
-				<!-- Menu -->
-				<nav id="menu">
-					<header class="major">
-						<h2>Menu</h2>
-					</header>
-					<ul>
-						<li><a href="index.html">Homepage</a></li>
-						<li>
-							<span class="opener">IGCSE Mathematics (0580)</span>
-							<ul>
-								<li><a href="math_0580_project.html">project</a></li>
-								<li><a href="math_0580_content.html">content</a></li>
-								<li><a href="#">exam</a></li>
-							</ul>
-						</li>
-						<li><a href="teaching_report.html">Teaching Report</a></li>
-						
-						<li>
-							<span class="opener">Portfolio</span>
-							<ul>
-							
-								<li><a href="MÔ-T'A.html">Ningbonese Bible</a></li>
+    <!-- right column -->
+    <main class="main-column">
+      <!-- About Me -->
+      <section class="card about-card">
+        <div class="section-title">About Me</div>
+        <p>
+          I am a researcher working at the intersection of human-computer interaction, learning science, and AI-supported experience design. My work looks at how multimodal systems can support everyday learning and creation, with a focus on translation workflows, mixed-reality authoring, and responsible AI in educational settings.
+        </p>
+        <p>
+          Current projects include multi-agent frameworks for translation quality, spatial window management for productivity in extended reality, and data informed feedback loops for creative thinking.
+        </p>
 
-								
-							
-						
-						<li><a href="AI_Enhanced_Journey/Generative-Platforms-for-Presentations-From-Ideas-to-Presentations.pdf">AI Enhanced Journey</a></li>
-						<li><a href="portfolio.html">EduConnect</a></li>
-						</ul>
-						
-					</ul>
-				</nav>
+        <p class="subheading">Research keywords</p>
+        <p>
+          Human-Computer Interaction, Multi-Modality AI, Adaptive Environments, Accessibility, Natural Language Processing, Learning Analytics.
+        </p>
+
+        <div class="pill-note">
+          <div class="pill-dot"></div>
+          <div>
+            I am actively seeking PhD opportunities starting in Fall 2026 in human-computer interaction. Please reach out if you would like to discuss possible work together.
+          </div>
+        </div>
 
 
-				<!-- Section -->
-				<section>
-					<header class="major">
-						<h2>Get in touch</h2>
-					</header>
-					<p>Feel free to approach me as followed:</p>
-					<ul class="contact">
-						<li class="icon solid fa-envelope"><a>georgewangxyz@gmail.com</a></li>
-						<li class="icon solid fa-envelope"><a>xw3617@nyu.edu</a></li>
-						<li class="icon solid fa-phone">(+1) 928 225 8995</li>
-						<li class="icon solid fa-home">70 Washington Square S <br />
-							New York, NY 10012</li>
-					</ul>
-				</section>
+      </section>
 
-				<!-- Footer -->
-				<footer id="footer">
-					<p class="copyright">&copy; George Wang. All rights reserved.</p>
-				</footer>
+        <!--------------------------------------- News --------------------------------------->
+<!--------------------------------------- News --------------------------------------->
+<section class="card about-card news-collapsible" id="news">
+  <div class="section-title">News</div>
 
-			</div>
-		</div>
-		
+  <!-- always visible items (top five) -->
+  <div class="news-year">2025</div>
 
-	</div>
+  <div class="news-item">
+    <div class="news-text">
+      Home environment and students creative thinking paper accepted to AERA 2026.
+    </div>
+    <div class="news-date">Nov 2025</div>
+  </div>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+  <div class="news-item">
+    <div class="news-text">
+      DuoZone submitted to IMWUT 2025 for review.
+    </div>
+    <div class="news-date">Oct 2025</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-text">
+      MAATS entered second round review at AAAI 2026.
+    </div>
+    <div class="news-date">Oct 2025</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-text">
+      Started thesis on VR support for blind and low vision indoor navigation.
+    </div>
+    <div class="news-date">Sep 2025</div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-text">
+      Invited talk at NYU on NotebookLM for literature review workflows.
+    </div>
+    <div class="news-date">Oct 2025</div>
+  </div>
+
+  <!-- extra items, collapsed by default -->
+  <div class="news-extra">
+    <div class="news-item">
+      <div class="news-text">
+        Joined the Visualization Imaging and Data Analysis Center as an AR VR research assistant.
+      </div>
+      <div class="news-date">Jul 2025</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-text">
+        Joined the Educational Communication Technology group at NYU as a qualitative research assistant.
+      </div>
+      <div class="news-date">Jun 2025</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-text">
+        Joined the NYU Silver School of Social Work as a graduate research assistant on aging and financial exploitation.
+      </div>
+      <div class="news-date">Apr 2025</div>
+    </div>
+
+    <div class="news-year">2024</div>
+
+    <div class="news-item">
+      <div class="news-text">
+        Led a workshop series at NYU Bobst Library on responsible technology, accountability, and privacy.
+      </div>
+      <div class="news-date">Feb 2024</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-text">
+        Started MA studies in Learning Science and Experience Design at NYU.
+      </div>
+      <div class="news-date">Aug 2024</div>
+    </div>
+
+    <div class="news-year">2023</div>
+
+    <div class="news-item">
+      <div class="news-text">
+        Roundtable talk at CUHK on AI as a learning partner for text, vision, and data.
+      </div>
+      <div class="news-date">Jan 2023</div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-text">
+        Workshop at CUHK on generative platforms for presentations.
+      </div>
+      <div class="news-date">Dec 2023</div>
+    </div>
+  </div>
+
+  <!-- toggle control -->
+  <div class="news-toggle-row">
+    <button class="news-toggle-link" id="newsToggleBtn" type="button">
+      Show more ▾
+    </button>
+  </div>
+</section>
+
+
+  <!-------------------- Research highlights  --------------------------------- -->
+
+      <!-- Research Highlights -->
+      <section class="card" id="research">
+        <div class="section-title">Research Highlights</div>
+        <div style="font-size:0.82rem; color:var(--text-soft); margin-bottom:10px;">
+          * Equal contribution, † corresponding author
+        </div>
+
+                
+    <!-------------------------------- DuoZone -------------------------------->
+<article class="research-card">
+  
+  <!-- Left teaser image -->
+  <div class="research-card-image">
+    <a href="duozone.html" target="_blank">
+      <img src="images/duozone_teaser.png" alt="DuoZone teaser image">
+    </a>
+  </div>
+
+  <!-- Right content -->
+  <div>
+    <div class="research-card-title">
+      DuoZone: User-centric, LLM-guided Mixed-Initiative Virtual Window Management for XR Productivity*
+    </div>
+
+    <div class="research-card-authors">
+      Wang, X.*; Qian, J.*; Li, X.; Wu, G.; Castelo Quispe, S.; Silva, C.
+    </div>
+
+    <div class="research-card-venue">
+      Under review, IMWUT 2025
+    </div>
+
+    <div class="research-card-links">
+      <a href="duozone_tldr.html" target="_blank">TLDR</a>
+      <a href="duozone_paper.pdf" target="_blank">Paper</a>
+      <a href="https://github.com/YOUR_REPO" target="_blank">Code</a>
+    </div>
+
+    <div class="research-card-tags">
+      <span class="research-card-tag">XR</span>
+      <span class="research-card-tag">Mixed-Initiative</span>
+      <span class="research-card-tag">LLM</span>
+      <span class="research-card-tag">Productivity</span>
+            <span class="research-card-tag">Workspace</span>
+    </div>
+  </div>
+
+</article>
+
+
+
+    <!-------------------------------- Home Environment -------------------------------->
+<article class="research-card">
+
+  <!-- Left teaser image -->
+  <div class="research-card-image">
+    <a href="https://arxiv.org/abs/2511.05737" target="_blank">
+      <img src="images/homeenv_teaser.png" alt="PISA home environment and creative thinking teaser">
+    </a>
+  </div>
+
+  <!-- Right content -->
+  <div>
+    <div class="research-card-title">
+      Home Environment and Students’ Creative Thinking: An Educational Data Science Analysis of PISA 2022
+    </div>
+
+    <div class="research-card-authors">
+      Wang, X.; Shen, Y.
+    </div>
+
+    <div class="research-card-venue">
+      AERA 2026 · Accepted
+    </div>
+
+
+
+    <div class="research-card-links">
+      <a href="homeenv_paper.pdf" target="_blank">Paper</a>
+    </div>
+
+    <div class="research-card-tags">
+      <span class="research-card-tag">Educational Data Science</span>
+      <span class="research-card-tag">PISA 2022</span>
+      <span class="research-card-tag">Creative Thinking</span>
+      <span class="research-card-tag">Learning Analytics</span>
+    </div>
+  </div>
+
+</article>
+
+
+
+
+  <!-------------------------------- MAATS -------------------------------->
+
+<article class="research-card">
+
+  <!-- Left teaser image -->
+  <div class="research-card-image">
+    <a href="maats.html" target="_blank">
+      <img src="images/maats_teaser.png" alt="MAATS multi-agent translation teaser">
+    </a>
+  </div>
+
+  <!-- Right content -->
+   
+  <div>
+    <div class="research-card-title">
+      MAATS: A Multi-Agent Automated Translation System Based on MQM Evaluation
+    </div>
+
+    <div class="research-card-authors">
+      Wang, X.; Hu, J.; Ali, S.
+    </div>
+
+    <div class="research-card-venue">
+      Under review, AAAI 2026
+    </div>
+
+    <div class="research-card-links">
+      <a href="maats_tldr.html" target="_blank">TLDR</a>
+      <a href="maats_paper.pdf" target="_blank">Paper</a>
+      <a href="https://github.com/YOUR_REPO" target="_blank">Code</a>
+    </div>
+
+    <div class="research-card-tags">
+              <span class="research-card-tag">Cognitive Modeling</span>
+      <span class="research-card-tag">Machine Translation</span>
+      <span class="research-card-tag">Multi-Agent</span>
+      <span class="research-card-tag">MQM</span>
+      <span class="research-card-tag">LLM</span>
+    </div>
+  </div>
+
+</article>
+
+
+  
+
+
+<!-------------------------------- E-dictionary -------------------------------->
+
+<article class="research-card">
+
+  <!-- Left teaser image -->
+  <div class="research-card-image">
+    <a href="dict_paper.pdf" target="_blank">
+      <img src="images/dict_teaser.png" alt="E-dictionary inaccuracies study teaser">
+    </a>
+  </div>
+
+  <!-- Right content -->
+  <div>
+    <div class="research-card-title">
+      The Hidden Pitfalls of E Dictionaries: How Inaccuracies Affect Chinese Language Users
+    </div>
+
+    <div class="research-card-authors">
+      Wang, X., Meng, F.F., & Zhang, S.Y., Li, L†.
+    </div>
+
+    <div class="research-card-venue">
+      AsiaLex 2023, Accepted
+    </div>
+
+    <div class="research-card-links">
+      <a href="dict_paper.pdf" target="_blank">Paper</a>
+    </div>
+
+    <div class="research-card-tags">
+      <span class="research-card-tag">lexicography</span>
+      <span class="research-card-tag">second language learning</span>
+      <span class="research-card-tag">educational data</span>
+    </div>
+  </div>
+
+</article>
+
+
+
+
+        </div>
+      </section>
+
+
+
+
+
+      <footer style="font-size:0.8rem; color:var(--text-soft); margin-top:8px;">
+        © 2025 George Wang. Adapted from academic homepage style templates.
+      </footer>
+    </main>
+  </div>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const section = document.getElementById("news");
+  if (!section) return;
+
+  const extra = section.querySelector(".news-extra");
+  const btn = document.getElementById("newsToggleBtn");
+  if (!extra || !btn) return;
+
+  let expanded = false;
+
+  btn.addEventListener("click", function() {
+    expanded = !expanded;
+    if (expanded) {
+      section.classList.add("news-expanded");
+      extra.style.maxHeight = extra.scrollHeight + "px";
+      btn.textContent = "Show less ▴";
+    } else {
+      extra.style.maxHeight = "0";
+      section.classList.remove("news-expanded");
+      btn.textContent = "Show more ▾";
+    }
+  });
+});
+</script>
 
 </body>
-
 </html>

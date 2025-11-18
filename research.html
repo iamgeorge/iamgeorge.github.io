@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>George Wang · Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-body: #f5f5f7;
+      --bg-card: #ffffff;
+      --border-subtle: #e5e5ea;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --text-soft: #9ca3af;
+      --accent: #2563eb;
+      --tag-bg: #f3f4ff;
+      --tag-text: #4338ca;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-top: 64px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* top bar */
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background: rgba(248, 250, 252, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+    }
+
+    .topbar-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .topbar-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .topbar-nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .topbar-nav a {
+      color: var(--text-muted);
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .topbar-nav a:hover {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+      text-decoration: none;
+    }
+
+    .topbar-nav a.is-current {
+      color: var(--text-main);
+      border-bottom-color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* layout */
+
+    .page-wrapper {
+      max-width: 1120px;
+      margin: 32px auto;
+      padding: 0 20px 40px;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 22px;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    /* left rail */
+
+    .sidebar {
+      position: sticky;
+      top: 96px;
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .research-intro p {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .filter-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 10px 0 6px;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .filter-tag {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .filter-tag:hover {
+      background: #eef2ff;
+      color: var(--accent);
+      border-color: #c7d2fe;
+    }
+
+    .filter-tag.is-active {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-color: #c7d2fe;
+      font-weight: 500;
+    }
+
+    .filter-clear {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    .filter-clear:hover {
+      text-decoration: underline;
+    }
+
+    /* main column */
+
+    .main-column {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .year-block {
+      margin-bottom: 6px;
+    }
+
+    .year-label {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    /* publication card */
+
+    .pub-card {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 16px;
+      padding: 14px 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: #fcfcff;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      margin-bottom: 10px;
+    }
+
+    .pub-card:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    }
+
+    .pub-thumb {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #e5e7eb;
+      height: 120px;
+    }
+
+    .pub-thumb a,
+    .pub-thumb img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pub-main-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .pub-authors {
+      font-size: 0.84rem;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .pub-venue {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+
+    .pub-links {
+      font-size: 0.82rem;
+      margin-bottom: 6px;
+    }
+
+    .pub-links a {
+      margin-right: 8px;
+    }
+
+    .pub-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pub-tag {
+      font-size: 0.78rem;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      cursor: pointer;
+    }
+
+    .pub-tag:hover {
+      filter: brightness(0.95);
+    }
+
+    .no-results {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    /* small layout */
+
+    @media (max-width: 880px) {
+      body {
+        padding-top: 56px;
+      }
+
+      .page-wrapper {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .topbar-inner {
+        flex-wrap: wrap;
+      }
+
+      .topbar-nav {
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+
+      .pub-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .pub-thumb {
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- top bar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-name">George Wang</div>
+      <nav class="topbar-nav">
+        <a href="index.html">Home</a>
+        <a href="research.html" class="is-current">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="misc.html">Misc</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <!-- left rail -->
+    <aside class="sidebar">
+      <section class="card research-intro">
+        <div class="section-title">Research</div>
+        <p>
+          I study human computer interaction, multimodal AI systems, and learning environments, with a focus on translation workflows, spatial computing, and responsible use of AI in education.
+        </p>
+        <p>
+          This page collects publications and works in review. You can filter by topic tags.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-title">Filter by tag</div>
+        <div class="filter-title">Topics</div>
+        <div class="tag-cloud">
+          <button class="filter-tag" data-tag="xr">XR</button>
+          <button class="filter-tag" data-tag="mixed-initiative">Mixed initiative</button>
+          <button class="filter-tag" data-tag="llm">LLM</button>
+          <button class="filter-tag" data-tag="workspace">Workspace</button>
+          <button class="filter-tag" data-tag="translation">Translation</button>
+          <button class="filter-tag" data-tag="multi-agent">Multi agent</button>
+          <button class="filter-tag" data-tag="mqm">MQM</button>
+          <button class="filter-tag" data-tag="education">Education</button>
+          <button class="filter-tag" data-tag="learning-analytics">Learning analytics</button>
+          <button class="filter-tag" data-tag="pisa">PISA twenty twenty two</button>
+          <button class="filter-tag" data-tag="lexicography">Lexicography</button>
+          <button class="filter-tag" data-tag="second-language">Second language</button>
+        </div>
+        <div class="filter-clear" id="filterClear">Clear all tags</div>
+      </section>
+    </aside>
+
+    <!-- main column -->
+    <main class="main-column" id="pubList">
+
+      <div style="font-size:0.82rem; color:var(--text-soft);">
+        * Equal contribution, † corresponding author
+      </div>
+
+      <!-- 2025 -->
+      <section class="year-block">
+        <div class="year-label">2025</div>
+
+        <!-- DuoZone -->
+        <article class="pub-card" data-tags="xr,mixed-initiative,llm,workspace">
+          <div class="pub-thumb">
+            <a href="duozone.html" target="_blank">
+              <img src="images/duozone_teaser.png" alt="DuoZone teaser" />
+            </a>
+          </div>
+          <div>
+            <div class="pub-main-title">
+              DuoZone: User centric LLM guided mixed initiative virtual window management for XR productivity*
+            </div>
+            <div class="pub-authors">
+              Wang, X.*; Qian, J.*; Li, X.; Wu, G.; Castelo Quispe, S.; Silva, C.
+            </div>
+            <div class="pub-venue">
+              IMWUT, under review
+            </div>
+            <div class="pub-links">
+              <a href="duozone_tldr.html" target="_blank">TLDR</a>
+              <a href="duozone_paper.pdf" target="_blank">Paper</a>
+              <a href="https://github.com/YOUR_REPO" target="_blank">Code</a>
+            </div>
+            <div class="pub-tags-row">
+              <span class="pub-tag" data-tag="xr">XR</span>
+              <span class="pub-tag" data-tag="mixed-initiative">Mixed initiative</span>
+              <span class="pub-tag" data-tag="llm">LLM</span>
+              <span class="pub-tag" data-tag="workspace">Workspace</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- MAATS -->
+        <article class="pub-card" data-tags="translation,multi-agent,mqm,llm">
+          <div class="pub-thumb">
+            <a href="maats.html" target="_blank">
+              <img src="images/maats_teaser.png" alt="MAATS teaser" />
+            </a>
+          </div>
+          <div>
+            <div class="pub-main-title">
+              MAATS: A multi agent automated translation system based on MQM evaluation
+            </div>
+            <div class="pub-authors">
+              Wang, X.; Hu, J.; Ali, S.
+            </div>
+            <div class="pub-venue">
+              AAAI, under review
+            </div>
+            <div class="pub-links">
+              <a href="maats_tldr.html" target="_blank">TLDR</a>
+              <a href="maats_paper.pdf" target="_blank">Paper</a>
+              <a href="https://github.com/YOUR_REPO" target="_blank">Code</a>
+            </div>
+            <div class="pub-tags-row">
+              <span class="pub-tag" data-tag="translation">Translation</span>
+              <span class="pub-tag" data-tag="multi-agent">Multi agent</span>
+              <span class="pub-tag" data-tag="mqm">MQM</span>
+              <span class="pub-tag" data-tag="llm">LLM</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Home environment PISA -->
+        <article class="pub-card" data-tags="education,learning-analytics,pisa">
+          <div class="pub-thumb">
+            <a href="homeenv_paper.pdf" target="_blank">
+              <img src="images/homeenv_teaser.png" alt="Home environment teaser" />
+            </a>
+          </div>
+          <div>
+            <div class="pub-main-title">
+              Home environment and students creative thinking: An educational data science study of PISA twenty twenty two
+            </div>
+            <div class="pub-authors">
+              Wang, X.; Shen, Y.
+            </div>
+            <div class="pub-venue">
+              AERA twenty twenty six, accepted
+            </div>
+            <div class="pub-links">
+              <a href="homeenv_paper.pdf" target="_blank">Paper</a>
+            </div>
+            <div class="pub-tags-row">
+              <span class="pub-tag" data-tag="education">Education</span>
+              <span class="pub-tag" data-tag="learning-analytics">Learning analytics</span>
+              <span class="pub-tag" data-tag="pisa">PISA twenty twenty two</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Lexicography journal version -->
+        <article class="pub-card" data-tags="lexicography,second-language,education">
+          <div class="pub-thumb">
+            <a href="dict_paper.pdf" target="_blank">
+              <img src="images/dict_teaser.png" alt="Dictionary teaser" />
+            </a>
+          </div>
+          <div>
+            <div class="pub-main-title">
+              The hidden pitfalls of e dictionaries: How inaccuracies affect Chinese language users
+            </div>
+            <div class="pub-authors">
+              Wang, X.; Zhang, S. Y.; Meng, F.; Li, L†.
+            </div>
+            <div class="pub-venue">
+              Lexicography: Journal of ASIALEX
+            </div>
+            <div class="pub-links">
+              <a href="dict_paper.pdf" target="_blank">Paper</a>
+            </div>
+            <div class="pub-tags-row">
+              <span class="pub-tag" data-tag="lexicography">Lexicography</span>
+              <span class="pub-tag" data-tag="second-language">Second language</span>
+              <span class="pub-tag" data-tag="education">Education</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- 2023 -->
+      <section class="year-block">
+        <div class="year-label">2023</div>
+
+        <!-- ASIALEX conference version -->
+        <article class="pub-card" data-tags="lexicography,second-language">
+          <div class="pub-thumb">
+            <a href="dict_paper_asialex.pdf" target="_blank">
+              <img src="images/dict_teaser.png" alt="Dictionary conference teaser" />
+            </a>
+          </div>
+          <div>
+            <div class="pub-main-title">
+              Inaccuracy of an e dictionary and its influence on Chinese language users
+            </div>
+            <div class="pub-authors">
+              Wang, X.; Meng, F. F.; Zhang, S. Y.; Li, L.
+            </div>
+            <div class="pub-venue">
+              Proceedings of the sixteenth ASIALEX conference, Seoul
+            </div>
+            <div class="pub-links">
+              <a href="dict_paper_asialex.pdf" target="_blank">Paper</a>
+            </div>
+            <div class="pub-tags-row">
+              <span class="pub-tag" data-tag="lexicography">Lexicography</span>
+              <span class="pub-tag" data-tag="second-language">Second language</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <div class="no-results" id="noResults" style="display:none;">
+        No publications match the selected tags. Clear tags to see all entries again.
+      </div>
+
+      <footer style="font-size:0.8rem; color:var(--text-soft); margin-top:8px;">
+        © 2025 George Wang. This page focuses on publications. Project details can be added later.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function() {
+      const filterButtons = document.querySelectorAll(".filter-tag");
+      const clearButton = document.getElementById("filterClear");
+      const cards = document.querySelectorAll(".pub-card");
+      const noResults = document.getElementById("noResults");
+      const tagFromCard = document.querySelectorAll(".pub-tag");
+
+      const activeTags = new Set();
+
+      function updateFilters() {
+        if (activeTags.size === 0) {
+          cards.forEach(card => {
+            card.style.display = "";
+          });
+          noResults.style.display = "none";
+          return;
+        }
+
+        let anyVisible = false;
+
+        cards.forEach(card => {
+          const tagList = (card.dataset.tags || "")
+            .split(",")
+            .map(t => t.trim().toLowerCase())
+            .filter(Boolean);
+
+          let matchAll = true;
+          activeTags.forEach(tag => {
+            if (!tagList.includes(tag)) {
+              matchAll = false;
+            }
+          });
+
+          if (matchAll) {
+            card.style.display = "";
+            anyVisible = true;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        noResults.style.display = anyVisible ? "none" : "block";
+      }
+
+      function toggleTag(tag) {
+        const key = tag.toLowerCase();
+        if (activeTags.has(key)) {
+          activeTags.delete(key);
+        } else {
+          activeTags.add(key);
+        }
+
+        filterButtons.forEach(btn => {
+          const val = (btn.dataset.tag || "").toLowerCase();
+          if (activeTags.has(val)) {
+            btn.classList.add("is-active");
+          } else {
+            btn.classList.remove("is-active");
+          }
+        });
+
+        updateFilters();
+      }
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const tag = btn.dataset.tag;
+          if (!tag) return;
+          toggleTag(tag);
+        });
+      });
+
+      if (clearButton) {
+        clearButton.addEventListener("click", () => {
+          activeTags.clear();
+          filterButtons.forEach(btn => btn.classList.remove("is-active"));
+          updateFilters();
+        });
+      }
+
+      tagFromCard.forEach(tagEl => {
+        tagEl.addEventListener("click", () => {
+          const tag = tagEl.dataset.tag;
+          if (!tag) return;
+          toggleTag(tag);
+
+          // optional: scroll back to top of list for context
+          const pubList = document.getElementById("pubList");
+          if (pubList) {
+            const top = pubList.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
