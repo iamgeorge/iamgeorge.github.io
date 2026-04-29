@@ -232,6 +232,11 @@
       box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
     }
 
+    .pub-card:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.28);
+      outline-offset: 3px;
+    }
+
     .pub-thumb {
       border-radius: 12px;
       overflow: hidden;
@@ -346,7 +351,7 @@
         <a href="portfolio.html">Portfolio</a>
         <a href="teaching.html">Teaching</a>
 
-        <a href="misc.html">Misc</a>
+        <a href="PSdocuments/GeorgexWang_CV.pdf">CV</a>
       </nav>
     </div>
   </header>
@@ -356,6 +361,9 @@
     <aside class="sidebar">
       <section class="card research-intro">
         <div class="section-title">Research</div>
+        <p>
+          I am an incoming PhD student in <a href="https://www.stonybrook.edu/est/" target="_blank" rel="noopener noreferrer">Technology, AI and Society</a> at Stony Brook University, within the <a href="https://www.stonybrook.edu/ceas/" target="_blank" rel="noopener noreferrer">College of Engineering and Applied Sciences</a>, where I will be advised by <a href="https://www.benzhang.info/" target="_blank" rel="noopener noreferrer">Ben Zhang</a>.
+        </p>
         <p>
           I study human computer interaction, multimodal AI systems, and learning environments, with a focus on translation workflows, spatial computing, and responsible use of AI in education.
         </p>
@@ -375,6 +383,7 @@
           <button class="filter-tag" data-tag="translation">Translation</button>
           <button class="filter-tag" data-tag="multi-agent">Multi agent</button>
           <button class="filter-tag" data-tag="mqm">MQM</button>
+          <button class="filter-tag" data-tag="accessibility">Accessibility</button>
           <button class="filter-tag" data-tag="education">Education</button>
           <button class="filter-tag" data-tag="learning-analytics">Learning analytics</button>
           <button class="filter-tag" data-tag="pisa">PISA twenty twenty two</button>
@@ -391,6 +400,67 @@
       <div style="font-size:0.82rem; color:var(--text-soft);">
         * Equal contribution, † corresponding author
       </div>
+
+      <!-- 2026 -->
+      <section class="year-block">
+        <div class="year-label">2026</div>
+
+        <!-- Touvigation -->
+        <article class="pub-card" data-tags="accessibility,llm">
+          <div class="pub-thumb">
+            <a href="Touvigation/sample-sigconf-authordraft.pdf" target="_blank">
+              <img src="images/touvigation_teaser.jpg" alt="Touvigation teaser" />
+            </a>
+          </div>
+          <div>
+            <div class="pub-main-title">
+              Touvigation: Embodied Progressive Guidance for Blind and Low-Vision Users
+            </div>
+            <div class="pub-authors">
+              Wang, G. X.; Hu, J.; Wen, S.; Xie, J.; Qian, J.
+            </div>
+            <div class="pub-venue">
+              Manuscript draft, 2026
+            </div>
+            <div class="pub-links">
+              <a href="Touvigation/sample-sigconf-authordraft.pdf" target="_blank">Paper</a>
+            </div>
+            <div class="pub-tags-row">
+              <span class="pub-tag" data-tag="accessibility">Accessibility</span>
+              <span class="pub-tag" data-tag="llm">LLM</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CHORUS -->
+        <article class="pub-card" data-tags="translation,multi-agent,mqm,llm">
+          <div class="pub-thumb">
+            <a href="https://arxiv.org/abs/2602.19016" target="_blank">
+              <img src="images/chorus_teaser.png" alt="CHORUS teaser" />
+            </a>
+          </div>
+          <div>
+            <div class="pub-main-title">
+              CHORUS: Effort-Aware Multi-Agent Human-AI Collaboration for Professional Translation
+            </div>
+            <div class="pub-authors">
+              Wang, G. X.; Hu, J.; Wu, G.; Qian, J.
+            </div>
+            <div class="pub-venue">
+              ICMI 2026, under review
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2602.19016" target="_blank">Paper</a>
+            </div>
+            <div class="pub-tags-row">
+              <span class="pub-tag" data-tag="translation">Translation</span>
+              <span class="pub-tag" data-tag="multi-agent">Multi agent</span>
+              <span class="pub-tag" data-tag="mqm">MQM</span>
+              <span class="pub-tag" data-tag="llm">LLM</span>
+            </div>
+          </div>
+        </article>
+      </section>
 
       <!-- 2025 -->
       <section class="year-block">
@@ -411,7 +481,7 @@
               Wang, X.*; Qian, J.*; Li, X.; Wu, G.; Castelo Quispe, S.; Silva, C.
             </div>
             <div class="pub-venue">
-              IMWUT, under review
+              ISMAR 2026, under review
             </div>
             <div class="pub-links">
               <a href="duozone_paper.pdf" target="_blank">Paper</a>
@@ -653,6 +723,26 @@
           if (pubList) {
             const top = pubList.getBoundingClientRect().top + window.scrollY - 80;
             window.scrollTo({ top, behavior: "smooth" });
+          }
+        });
+      });
+
+      cards.forEach(card => {
+        const primaryLink = card.querySelector("a[href]");
+        if (!primaryLink || !primaryLink.getAttribute("href")) return;
+
+        card.tabIndex = 0;
+        card.setAttribute("role", "link");
+
+        card.addEventListener("click", event => {
+          if (event.target.closest("a")) return;
+          primaryLink.click();
+        });
+
+        card.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            primaryLink.click();
           }
         });
       });
