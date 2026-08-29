@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Home Environment and Students' Creative Thinking: An Educational Data Science Analysis of PISA 2022 · George Wang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-body: #f5f5f7;
+      --bg-card: #ffffff;
+      --border-subtle: #e5e5ea;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --text-soft: #9ca3af;
+      --accent: #2563eb;
+      --tag-bg: #f3f4ff;
+      --tag-text: #4338ca;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --shadow-subtle: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-top: 64px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* top bar */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 40;
+      background: rgba(248, 250, 252, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.03);
+    }
+    .topbar-inner {
+      max-width: 1120px; margin: 0 auto; padding: 10px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .topbar-name { font-weight: 600; font-size: 1rem; color: var(--text-main); }
+    .topbar-nav { display: flex; gap: 18px; font-size: 0.9rem; }
+    .topbar-nav a { color: var(--text-muted); padding-bottom: 2px; border-bottom: 2px solid transparent; }
+    .topbar-nav a:hover { color: var(--text-main); border-bottom-color: var(--accent); text-decoration: none; }
+
+    .page-wrapper { max-width: 860px; margin: 0 auto; padding: 30px 20px 60px; }
+
+    .back-row { margin-bottom: 26px; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 0.85rem; font-weight: 500; color: var(--text-muted);
+    }
+    .back-link svg { transition: transform 0.18s ease; }
+    .back-link:hover { color: var(--accent); text-decoration: none; }
+    .back-link:hover svg { transform: translateX(-3px); }
+
+    .venue-badge {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      padding: 5px 13px; border-radius: 999px; margin-bottom: 16px;
+      background: #eff6ff; color: #1d4ed8;
+    }
+
+    h1.project-title {
+      font-family: "Newsreader", Georgia, "Times New Roman", serif;
+      font-optical-sizing: auto;
+      font-size: 2.15rem; font-weight: 600; line-height: 1.22;
+      letter-spacing: -0.005em; margin-bottom: 14px;
+      text-wrap: balance;
+    }
+
+    .project-authors { font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px; }
+    .project-authors strong { font-weight: 600; }
+    .project-venue {
+      font-family: "Newsreader", Georgia, serif; font-style: italic;
+      font-size: 1.02rem; color: var(--text-muted); margin-bottom: 22px;
+    }
+
+    .link-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+    .link-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.85rem; font-weight: 500;
+      padding: 8px 17px; border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-card); color: var(--text-main);
+      box-shadow: var(--shadow-subtle);
+      transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .link-pill svg { color: var(--accent); flex: none; }
+    .link-pill:hover {
+      border-color: var(--accent); color: var(--accent);
+      text-decoration: none; transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+    }
+    .link-pill:focus-visible,
+    .copy-btn:focus-visible,
+    .back-link:focus-visible {
+      outline: 3px solid rgba(37, 99, 235, 0.3); outline-offset: 2px; border-radius: 999px;
+    }
+
+    .media-card {
+      border-radius: var(--radius-lg); overflow: hidden;
+      border: 1px solid var(--border-subtle); background: var(--bg-card);
+      box-shadow: var(--shadow-soft); margin-bottom: 26px;
+    }
+    .media-card img, .media-card video { display: block; width: 100%; height: auto; }
+
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-soft);
+      padding: 24px 28px; margin-bottom: 22px;
+    }
+    .section-title {
+      font-size: 0.76rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-soft);
+    }
+    .card > .section-title { margin-bottom: 14px; }
+    .card p { font-size: 0.94rem; margin-bottom: 11px; color: #1f2937; }
+    .card p:last-child { margin-bottom: 0; }
+
+    .citation-head {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; margin-bottom: 14px;
+    }
+    .copy-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.78rem; font-weight: 500; font-family: "Inter", sans-serif;
+      padding: 6px 15px; border-radius: 999px;
+      border: 1px solid var(--border-subtle); background: var(--bg-card);
+      color: var(--text-muted); cursor: pointer;
+      box-shadow: var(--shadow-subtle);
+      transition: border-color 0.15s ease, color 0.15s ease;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .copy-btn svg { flex: none; }
+    .bibtex-block {
+      background: #f8fafc; color: #334155;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius-md); padding: 18px 20px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.78rem; line-height: 1.6;
+      overflow-x: auto; white-space: pre;
+    }
+
+    footer { font-size: 0.8rem; color: var(--text-soft); margin-top: 8px; }
+
+    @media (max-width: 640px) {
+      h1.project-title { font-size: 1.6rem; }
+      .topbar-nav { gap: 12px; font-size: 0.82rem; flex-wrap: wrap; }
+      .card { padding: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-name">George Wang</div>
+      <nav class="topbar-nav">
+        <a href="../index.html">Home</a>
+        <a href="../research.html">Research</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a href="../teaching.html">Teaching</a>
+        <a href="../PSdocuments/GeorgexWang_CV.pdf">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <div class="back-row">
+      <a class="back-link" href="../research.html">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5" /><path d="M12 19l-7-7 7-7" /></svg>
+        All publications
+      </a>
+    </div>
+
+    <div class="venue-badge">AERA 2026</div>
+    <h1 class="project-title">Home Environment and Students' Creative Thinking: An Educational Data Science Analysis of PISA 2022</h1>
+    <div class="project-authors"><strong>Wang, X.</strong>; Shen, Y.</div>
+    <div class="project-venue">Annual Meeting of the American Educational Research Association (AERA 2026), accepted</div>
+
+    <div class="link-row">
+      <a class="link-pill" href="../research_papers/homeenv.pdf" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>PDF</a>
+      <a class="link-pill" href="https://arxiv.org/abs/2511.05737" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="5" rx="1" /><path d="M5 8v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></svg>arXiv</a>
+    </div>
+
+    <div class="media-card"><img src="../images/homeenv_teaser.png" alt="Home environment and creative thinking study teaser" /></div>
+
+    <section class="card">
+      <div class="section-title">Abstract</div>
+      <p>This study investigates how student exposure to resources in their home environments relates to creative thinking performance, using data from the PISA 2022 Creative Thinking assessment. It focuses on two primary questions: (1) How strongly is exposure to cultural, educational, and digital resources associated with creativity? (2) Do students perform better on divergent thinking tasks when physically engaged or digitally stimulated?</p>
+      <p>Drawing on a sample of 15,425 students from 60 countries, the study applies high-dimensional regression and factor analysis to identify patterns across a wide range of exposure variables. A Confirmatory Factor Analysis specified two latent factors, Physical Exposure and Digital Exposure, with excellent model fit (CFI = 0.971, RMSEA = 0.038). When both factors were entered together in the regression, physical and digital exposures each contributed unique explanatory power — they appear to be complementary dimensions of a creative home environment.</p>
+      <p>The findings offer international evidence that both physical and digital resources in the home play significant, independent, and complementary roles in shaping adolescent creative thinking, with direct implications for efforts to promote creativity and equity in education.</p>
+    </section>
+
+    <section class="card">
+      <div class="citation-head">
+        <div class="section-title">Citation</div>
+        <button class="copy-btn" onclick="copyBibtex(this)">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" /></svg>
+          <span>Copy BibTeX</span>
+        </button>
+      </div>
+      <div class="bibtex-block" id="bibtex">@misc{wang2025homeenv,
+  author        = {Wang, George X. and Shen, Yuyang},
+  title         = {Home Environment and Student Creative Thinking: An
+                   Educational Data Science Analysis of PISA 2022},
+  year          = {2025},
+  eprint        = {2511.05737},
+  archivePrefix = {arXiv},
+  note          = {Accepted at AERA 2026}
+}</div>
+    </section>
+
+    <footer>&copy; 2026 George Wang</footer>
+  </div>
+
+  <script>
+    function copyBibtex(btn) {
+      const text = document.getElementById("bibtex").textContent;
+      navigator.clipboard.writeText(text).then(function () {
+        btn.querySelector("span").textContent = "Copied!";
+        setTimeout(function () { btn.querySelector("span").textContent = "Copy BibTeX"; }, 1600);
+      });
+    }
+  </script>
+</body>
+</html>
