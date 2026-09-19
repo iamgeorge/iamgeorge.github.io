@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Touvigation: Embodied Progressive Guidance for Blind and Low-Vision Users · George Wang</title>
+  <title>Touvigation: Embodied Adaptive Object Acquisition for Blind and Low-Vision Users in Unfamiliar Indoor Environments · George Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet" />
@@ -142,7 +142,7 @@
       box-shadow: var(--shadow-subtle);
       transition: border-color 0.15s ease, color 0.15s ease;
     }
-    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
     .copy-btn svg { flex: none; }
     .bibtex-block {
       background: #f8fafc; color: #334155;
@@ -153,12 +153,58 @@
       overflow-x: auto; white-space: pre;
     }
 
+    .thumb-grid {
+      display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px;
+    }
+    .thumb-grid.slides { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .thumb-grid a {
+      display: block; border-radius: 6px; overflow: hidden;
+      border: 1px solid var(--border-subtle); background: #fff;
+      box-shadow: var(--shadow-subtle);
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .thumb-grid a:hover {
+      transform: translateY(-2px); border-color: var(--accent);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
+    }
+    .thumb-grid a:focus-visible { outline: 3px solid rgba(37, 99, 235, 0.3); outline-offset: 2px; }
+    .thumb-grid img { display: block; width: 100%; height: auto; }
+
+    .lightbox {
+      position: fixed; inset: 0; z-index: 100; display: none;
+      align-items: center; justify-content: center;
+      background: rgba(15, 23, 42, 0.88); padding: 48px 64px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%; max-height: 100%; border-radius: 6px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); background: #fff;
+    }
+    .lb-btn {
+      position: absolute; width: 42px; height: 42px; border-radius: 999px;
+      border: none; background: rgba(255, 255, 255, 0.12); color: #fff;
+      font-size: 1.3rem; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lb-btn:hover { background: rgba(255, 255, 255, 0.24); }
+    .lb-close { top: 14px; right: 14px; }
+    .lb-prev { left: 12px; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: 12px; top: 50%; transform: translateY(-50%); }
+    .lb-count {
+      position: absolute; bottom: 16px; left: 0; right: 0; text-align: center;
+      color: rgba(255, 255, 255, 0.75); font-size: 0.8rem;
+    }
+
     footer { font-size: 0.8rem; color: var(--text-soft); margin-top: 8px; }
 
     @media (max-width: 640px) {
       h1.project-title { font-size: 1.6rem; }
       .topbar-nav { gap: 12px; font-size: 0.82rem; flex-wrap: wrap; }
       .card { padding: 20px; }
+      .thumb-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+      .thumb-grid.slides { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lightbox { padding: 56px 12px; }
+      .lb-prev, .lb-next { top: auto; bottom: 8px; transform: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -189,21 +235,59 @@
       </a>
     </div>
 
-    <div class="venue-badge">Manuscript Draft</div>
-    <h1 class="project-title">Touvigation: Embodied Progressive Guidance for Blind and Low-Vision Users</h1>
-    <div class="project-authors"><strong>Wang, G. X.</strong>; Hu, J.; Wen, S.; Xie, J.; Qian, J.</div>
-    <div class="project-venue">Manuscript draft, 2026</div>
+    <div class="venue-badge">Preprint</div>
+    <h1 class="project-title">Touvigation: Embodied Adaptive Object Acquisition for Blind and Low-Vision Users in Unfamiliar Indoor Environments</h1>
+    <div class="project-authors"><strong>Wang, G. X.</strong>; Li, X.; Wen, S.; Hu, J.; Xie, J.; Wang, Y.; Shi, Z.; Chen, Q.; Bouwmeester, M.; Jin, Y.*; Qian, J.* &nbsp;<span style="color:var(--text-soft);">(* co-corresponding)</span></div>
+    <div class="project-venue">Manuscript under review, 2026</div>
 
     <div class="link-row">
-      <a class="link-pill" href="../Touvigation/sample-sigconf-authordraft.pdf" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>PDF</a>
+      <a class="link-pill" href="../Touvigation/Touvigation_preprint.pdf" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>PDF</a>
     </div>
 
-    <div class="media-card"><img src="../images/touvigation_teaser.jpg" alt="Touvigation system teaser" /></div>
+    <div class="media-card"><img src="../images/touvigation/teaser.jpg" alt="Touvigation system teaser" /></div>
 
     <section class="card">
       <div class="section-title">Abstract</div>
-      <p>Touvigation is an egocentric wearable system that shifts LLM-powered visual assistance for blind and low-vision (BLV) users from passive snapshot descriptions to body-anchored, progressive guidance. Existing tools often describe the world as perceived by sighted users, with unstable spatial reference frames and unembodied metrics that fail to translate into physical action.</p>
-      <p>Grounded in a formative study with ten BLV participants, Touvigation is designed around three core principles: (1) a fixed body-centric reference anchor that consistently treats the user as the spatial origin; (2) embodied metrics such as arm spans, clock-face directions, and step counts that map directly to physical actions; and (3) a layered sensing envelope based on the user's navigation tools (hand, cane, and foot) that prioritizes information by actionable proximity. Together, these principles enable BLV-centered, proactive guidance that bridges the gap between AI perception and physical action.</p>
+      <p>Blind and low-vision users benefit from AI object-search systems to assist movement and object-searching in unfamiliar spaces. However, existing systems have high latency and require BLV users to mentally translate AI instructions. Through formative interviews with eight BLV participants, we identified existing challenges including AI guidance misaligned with actions, high latency, and lacking tactile identification.</p>
+      <p>We present Touvigation, a phone-based object-acquisition system combines an LLM with local 3D reconstruction for low-latency embodied guidance. Touvigation uses a multi-stage reference switching method for end-to-end object acquisition.</p>
+      <p>An empirical study with 12 BLV participants comparing Touvigation, Doubao (an MLLM AI Agent) for success rate, completion time, and workload in 2 different settings found our system reached 100% success rate (58% for Doubao and 85% for unassisted), significantly reduced the overall cognitive load and mental demand with the fastest completion experience. Subjective ratings reflect high scores for Touvigation's spatial awareness, trust, and perceived safety.</p>
+    </section>
+
+    <section class="card">
+      <div class="citation-head">
+        <div class="section-title">Paper</div>
+        <a class="copy-btn" href="../Touvigation/Touvigation_preprint.pdf" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="M7 10l5 5 5-5" /><path d="M5 21h14" /></svg><span>Download PDF</span></a>
+      </div>
+      <div class="thumb-grid" data-gallery>
+        <a href="../images/touvigation/paper/paper-01.jpg"><img src="../images/touvigation/paper/thumbs/paper-01.jpg" alt="Paper page 1" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-02.jpg"><img src="../images/touvigation/paper/thumbs/paper-02.jpg" alt="Paper page 2" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-03.jpg"><img src="../images/touvigation/paper/thumbs/paper-03.jpg" alt="Paper page 3" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-04.jpg"><img src="../images/touvigation/paper/thumbs/paper-04.jpg" alt="Paper page 4" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-05.jpg"><img src="../images/touvigation/paper/thumbs/paper-05.jpg" alt="Paper page 5" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-06.jpg"><img src="../images/touvigation/paper/thumbs/paper-06.jpg" alt="Paper page 6" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-07.jpg"><img src="../images/touvigation/paper/thumbs/paper-07.jpg" alt="Paper page 7" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-08.jpg"><img src="../images/touvigation/paper/thumbs/paper-08.jpg" alt="Paper page 8" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-09.jpg"><img src="../images/touvigation/paper/thumbs/paper-09.jpg" alt="Paper page 9" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-10.jpg"><img src="../images/touvigation/paper/thumbs/paper-10.jpg" alt="Paper page 10" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-11.jpg"><img src="../images/touvigation/paper/thumbs/paper-11.jpg" alt="Paper page 11" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-12.jpg"><img src="../images/touvigation/paper/thumbs/paper-12.jpg" alt="Paper page 12" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-13.jpg"><img src="../images/touvigation/paper/thumbs/paper-13.jpg" alt="Paper page 13" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-14.jpg"><img src="../images/touvigation/paper/thumbs/paper-14.jpg" alt="Paper page 14" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-15.jpg"><img src="../images/touvigation/paper/thumbs/paper-15.jpg" alt="Paper page 15" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-16.jpg"><img src="../images/touvigation/paper/thumbs/paper-16.jpg" alt="Paper page 16" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-17.jpg"><img src="../images/touvigation/paper/thumbs/paper-17.jpg" alt="Paper page 17" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-18.jpg"><img src="../images/touvigation/paper/thumbs/paper-18.jpg" alt="Paper page 18" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-19.jpg"><img src="../images/touvigation/paper/thumbs/paper-19.jpg" alt="Paper page 19" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-20.jpg"><img src="../images/touvigation/paper/thumbs/paper-20.jpg" alt="Paper page 20" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-21.jpg"><img src="../images/touvigation/paper/thumbs/paper-21.jpg" alt="Paper page 21" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-22.jpg"><img src="../images/touvigation/paper/thumbs/paper-22.jpg" alt="Paper page 22" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-23.jpg"><img src="../images/touvigation/paper/thumbs/paper-23.jpg" alt="Paper page 23" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-24.jpg"><img src="../images/touvigation/paper/thumbs/paper-24.jpg" alt="Paper page 24" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-25.jpg"><img src="../images/touvigation/paper/thumbs/paper-25.jpg" alt="Paper page 25" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-26.jpg"><img src="../images/touvigation/paper/thumbs/paper-26.jpg" alt="Paper page 26" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-27.jpg"><img src="../images/touvigation/paper/thumbs/paper-27.jpg" alt="Paper page 27" loading="lazy" /></a>
+        <a href="../images/touvigation/paper/paper-28.jpg"><img src="../images/touvigation/paper/thumbs/paper-28.jpg" alt="Paper page 28" loading="lazy" /></a>
+      </div>
     </section>
 
     <section class="card">
@@ -215,11 +299,12 @@
         </button>
       </div>
       <div class="bibtex-block" id="bibtex">@unpublished{wang2026touvigation,
-  author = {Wang, George X. and Hu, Jiaqian and Wen, Shaoyue and Xie, Junan
-            and Qian, Jing},
-  title  = {Touvigation: Embodied Progressive Guidance for Blind and
-            Low-Vision Users},
-  note   = {Manuscript draft},
+  author = {Wang, George Xi and Li, Xiangyu and Wen, Shaoyue and Hu, Jiaqian
+            and Xie, Junan and Wang, Yupeng and Shi, Ziyue and Chen, Qijun
+            and Bouwmeester, Maaike and Jin, Yuhua and Qian, Jing},
+  title  = {Touvigation: Embodied Adaptive Object Acquisition for Blind and
+            Low-Vision Users in Unfamiliar Indoor Environments},
+  note   = {Manuscript under review},
   year   = {2026}
 }</div>
     </section>
@@ -227,7 +312,59 @@
     <footer>&copy; 2026 George Wang</footer>
   </div>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <img id="lb-img" alt="" />
+    <button class="lb-btn lb-close" type="button" aria-label="Close">&times;</button>
+    <button class="lb-btn lb-prev" type="button" aria-label="Previous">&lsaquo;</button>
+    <button class="lb-btn lb-next" type="button" aria-label="Next">&rsaquo;</button>
+    <div class="lb-count" id="lb-count"></div>
+  </div>
+
   <script>
+    (function () {
+      const box = document.getElementById("lightbox");
+      const img = document.getElementById("lb-img");
+      const count = document.getElementById("lb-count");
+      let items = [], idx = 0, opener = null;
+
+      function show(i) {
+        idx = (i + items.length) % items.length;
+        img.src = items[idx].href;
+        img.alt = items[idx].querySelector("img").alt;
+        count.textContent = (idx + 1) + " / " + items.length;
+      }
+      function close() {
+        box.classList.remove("open");
+        document.body.style.overflow = "";
+        if (opener) opener.focus();
+      }
+
+      document.querySelectorAll("[data-gallery]").forEach(function (grid) {
+        const links = Array.from(grid.querySelectorAll("a"));
+        links.forEach(function (a, i) {
+          a.addEventListener("click", function (e) {
+            e.preventDefault();
+            items = links; opener = a;
+            show(i);
+            box.classList.add("open");
+            document.body.style.overflow = "hidden";
+            box.querySelector(".lb-close").focus();
+          });
+        });
+      });
+
+      box.querySelector(".lb-close").addEventListener("click", close);
+      box.querySelector(".lb-prev").addEventListener("click", function () { show(idx - 1); });
+      box.querySelector(".lb-next").addEventListener("click", function () { show(idx + 1); });
+      box.addEventListener("click", function (e) { if (e.target === box) close(); });
+      document.addEventListener("keydown", function (e) {
+        if (!box.classList.contains("open")) return;
+        if (e.key === "Escape") close();
+        else if (e.key === "ArrowLeft") show(idx - 1);
+        else if (e.key === "ArrowRight") show(idx + 1);
+      });
+    })();
+
     function copyBibtex(btn) {
       const text = document.getElementById("bibtex").textContent;
       navigator.clipboard.writeText(text).then(function () {
