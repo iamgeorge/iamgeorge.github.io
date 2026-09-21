@@ -1,0 +1,9 @@
+# macOS / editor metadata
+.DS_Store
+._*
+.vscode/
+
+# Private documents: only the public CV is published
+PSdocuments/*
+!PSdocuments/GeorgexWang_CV.pdf
+NIW/

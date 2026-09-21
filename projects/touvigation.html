@@ -235,28 +235,29 @@
       </a>
     </div>
 
-    <div class="venue-badge">Preprint</div>
+    <div class="venue-badge">arXiv Preprint</div>
     <h1 class="project-title">Touvigation: Embodied Adaptive Object Acquisition for Blind and Low-Vision Users in Unfamiliar Indoor Environments</h1>
     <div class="project-authors"><strong>Wang, G. X.</strong>; Li, X.; Wen, S.; Hu, J.; Xie, J.; Wang, Y.; Shi, Z.; Chen, Q.; Bouwmeester, M.; Jin, Y.*; Qian, J.* &nbsp;<span style="color:var(--text-soft);">(* co-corresponding)</span></div>
-    <div class="project-venue">Manuscript under review, 2026</div>
+    <div class="project-venue">arXiv preprint, 2026</div>
 
     <div class="link-row">
-      <a class="link-pill" href="../Touvigation/Touvigation_preprint.pdf" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>PDF</a>
+      <a class="link-pill" href="https://arxiv.org/pdf/2609.21828" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>PDF</a>
+      <a class="link-pill" href="https://arxiv.org/abs/2609.21828" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="5" rx="1" /><path d="M5 8v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></svg>arXiv</a>
     </div>
 
     <div class="media-card"><img src="../images/touvigation/teaser.jpg" alt="Touvigation system teaser" /></div>
 
     <section class="card">
       <div class="section-title">Abstract</div>
-      <p>Blind and low-vision users benefit from AI object-search systems to assist movement and object-searching in unfamiliar spaces. However, existing systems have high latency and require BLV users to mentally translate AI instructions. Through formative interviews with eight BLV participants, we identified existing challenges including AI guidance misaligned with actions, high latency, and lacking tactile identification.</p>
-      <p>We present Touvigation, a phone-based object-acquisition system combines an LLM with local 3D reconstruction for low-latency embodied guidance. Touvigation uses a multi-stage reference switching method for end-to-end object acquisition.</p>
-      <p>An empirical study with 12 BLV participants comparing Touvigation, Doubao (an MLLM AI Agent) for success rate, completion time, and workload in 2 different settings found our system reached 100% success rate (58% for Doubao and 85% for unassisted), significantly reduced the overall cognitive load and mental demand with the fastest completion experience. Subjective ratings reflect high scores for Touvigation's spatial awareness, trust, and perceived safety.</p>
+      <p>Blind and low-vision users often face challenges when locating and physically acquiring objects in unfamiliar indoor environments. Existing vision-language-model-based assistants can provide semantic descriptions but may introduce latency, hallucinations, and guidance that is poorly aligned with embodied action.</p>
+      <p>We present Touvigation, a hands-free object acquisition system that combines vision-language understanding with persistent local spatial modeling to provide low-latency, body-relative guidance. Drawing on formative interviews with eight blind and low-vision participants, we design a multi-stage guidance framework that adapts spatial references as users transition from orienting, to walking, to reaching and tactile verification.</p>
+      <p>We evaluated Touvigation with 12 blind and low-vision participants against a multimodal large-language-model assistant and unassisted search. Touvigation achieved 100% task success, compared with 58% for the multimodal assistant and 85% for unassisted search, while reducing completion time and cognitive workload. Our findings demonstrate how persistent spatial grounding and adaptive embodied guidance can improve object acquisition for blind and low-vision users.</p>
     </section>
 
     <section class="card">
       <div class="citation-head">
         <div class="section-title">Paper</div>
-        <a class="copy-btn" href="../Touvigation/Touvigation_preprint.pdf" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="M7 10l5 5 5-5" /><path d="M5 21h14" /></svg><span>Download PDF</span></a>
+        <a class="copy-btn" href="https://arxiv.org/pdf/2609.21828" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12" /><path d="M7 10l5 5 5-5" /><path d="M5 21h14" /></svg><span>Download PDF</span></a>
       </div>
       <div class="thumb-grid" data-gallery>
         <a href="../images/touvigation/paper/paper-01.jpg"><img src="../images/touvigation/paper/thumbs/paper-01.jpg" alt="Paper page 1" loading="lazy" /></a>
@@ -298,14 +299,16 @@
           <span>Copy BibTeX</span>
         </button>
       </div>
-      <div class="bibtex-block" id="bibtex">@unpublished{wang2026touvigation,
-  author = {Wang, George Xi and Li, Xiangyu and Wen, Shaoyue and Hu, Jiaqian
-            and Xie, Junan and Wang, Yupeng and Shi, Ziyue and Chen, Qijun
-            and Bouwmeester, Maaike and Jin, Yuhua and Qian, Jing},
-  title  = {Touvigation: Embodied Adaptive Object Acquisition for Blind and
-            Low-Vision Users in Unfamiliar Indoor Environments},
-  note   = {Manuscript under review},
-  year   = {2026}
+      <div class="bibtex-block" id="bibtex">@misc{wang2026touvigation,
+  author        = {Wang, George Xi and Li, Xiangyu and Wen, Shaoyue and Hu, Jiaqian
+                   and Xie, Junan and Wang, Yupeng and Shi, Ziyue and Chen, Qijun
+                   and Bouwmeester, Maaike and Jin, Yuhua and Qian, Jing},
+  title         = {Touvigation: Embodied Adaptive Object Acquisition for Blind and
+                   Low-Vision Users in Unfamiliar Indoor Environments},
+  year          = {2026},
+  eprint        = {2609.21828},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.HC}
 }</div>
     </section>
 
