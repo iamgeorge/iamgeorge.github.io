@@ -115,6 +115,8 @@
       box-shadow: var(--shadow-soft); margin-bottom: 26px;
     }
     .media-card img, .media-card video { display: block; width: 100%; height: auto; }
+    .video-embed { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #000; }
+    .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
     .card {
       background: var(--bg-card); border: 1px solid var(--border-subtle);
@@ -244,9 +246,10 @@
       <a class="link-pill" href="../chorus/CHORUS_ICMI2026.pdf" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>PDF</a>
       <a class="link-pill" href="https://doi.org/10.1145/3776574.3831126" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><path d="M15 3h6v6" /><path d="M10 14 21 3" /></svg>ACM DL</a>
       <a class="link-pill" href="https://arxiv.org/abs/2602.19016" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="5" rx="1" /><path d="M5 8v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8" /><path d="M10 12h4" /></svg>arXiv</a>
+      <a class="link-pill" href="https://www.youtube.com/watch?v=PU1KZnxq7Y0" target="_blank" rel="noopener noreferrer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="4" /><path d="M10 9.5l5 2.5-5 2.5z" /></svg>Video</a>
     </div>
 
-    <div class="media-card"><img src="../images/chorus_teaser.png" alt="CHORUS system teaser" /></div>
+    <div class="media-card"><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/PU1KZnxq7Y0" title="CHORUS talk at ACM ICMI 2026" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
 
     <section class="card">
       <div class="section-title">Abstract</div>
