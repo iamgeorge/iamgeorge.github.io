@@ -498,10 +498,33 @@
   margin-bottom: 6px;
 }
 
+.research-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .research-card-links a {
-  font-size: 0.82rem;
-  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 68px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.research-card-links a:hover {
+  border-color: var(--accent);
   color: var(--accent);
+  text-decoration: none;
 }
 
 .research-card-tags {
@@ -929,7 +952,7 @@
 
     <div class="research-card-links">
       <a href="chorus/CHORUS_ICMI2026.pdf" target="_blank">PDF</a>
-      <a href="https://doi.org/10.1145/3776574.3831126" target="_blank">ACM DL</a>
+      <a href="https://doi.org/10.1145/3776574.3831126" target="_blank">Publisher</a>
       <a href="https://arxiv.org/abs/2602.19016" target="_blank">arXiv</a>
       <a href="https://www.youtube.com/watch?v=PU1KZnxq7Y0" target="_blank">Video</a>
       <a href="chorus/CHORUS_ICMI2026.pptx" download>Slides</a>
@@ -973,6 +996,7 @@
 
     <div class="research-card-links">
       <a href="duozone/DuoZone_TVCG2026.pdf" target="_blank">PDF</a>
+      <a href="https://doi.org/10.1109/TVCG.2026.3747519" target="_blank">Publisher</a>
       <a href="https://arxiv.org/abs/2511.15676" target="_blank">arXiv</a>
       <a href="https://youtu.be/13heJpqdb8M" target="_blank">Video</a>
       <a href="duozone/DuoZone_ISMAR2026.pptx" download>Slides</a>
@@ -1016,7 +1040,7 @@
 
     <div class="research-card-links">
       <a href="research_papers/feelium.pdf" target="_blank">PDF</a>
-      <a href="https://doi.org/10.1145/3830397.3841870" target="_blank">ACM DL</a>
+      <a href="https://doi.org/10.1145/3830397.3841870" target="_blank">Publisher</a>
       <a href="images/feelium/feelium_video.mp4" target="_blank">Video</a>
     </div>
 
@@ -1150,8 +1174,8 @@
 
     <div class="research-card-links">
       <a href="research_papers/edictionary.pdf" target="_blank">PDF</a>
+      <a href="https://domestic.thinkonweb.com/society/korealex/file/download/3925?view=1#page=4" target="_blank">Publisher</a>
       <a href="https://arxiv.org/abs/2504.00799" target="_blank">arXiv</a>
-      <a href="https://domestic.thinkonweb.com/society/korealex/file/download/3925?view=1#page=4" target="_blank">Proceedings</a>
       <a href="edictionary/Edictionary_ASIALEX2023.pptx" download>Slides</a>
     </div>
 
